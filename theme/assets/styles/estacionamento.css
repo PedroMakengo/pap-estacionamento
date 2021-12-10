@@ -1,0 +1,80 @@
+.header-top {
+  background: transparent;
+  height: 10vh;
+
+  position: relative;
+  z-index: 300;
+}
+
+.title-logo {
+  display: flex;
+
+  height: 100%;
+  align-items: center;
+
+  font-size: 26px;
+  font-family: Roboto;
+  font-weight: bold;
+
+  text-transform: uppercase;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 10vh;
+}
+
+.menu a {
+  display: block;
+
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+
+  width: 40%;
+
+  font-family: Poppins;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+  font-weight: bold;
+  transition: color, border 0.5s;
+}
+
+nav a:hover,
+nav a.active:hover {
+  text-decoration: none;
+  border-bottom: 2px solid #169db4;
+  color: #169db4;
+}
+
+nav a.active {
+  border-bottom: 2px solid #fff;
+  color: #fff;
+}
+
+/* Slider */
+.home-slider {
+  height: 100vh;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.home-slider .testimonial {
+  height: 100vh !important;
+
+  display: flex;
+  align-items: center;
+}
+
+.testimonial :is(h1, h2, h3, h4) {
+  font-family: Poppins !important;
+}
