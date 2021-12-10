@@ -1,11 +1,19 @@
-.dash-aside-bg {
+.banner-dashboard {
+  background: linear-gradient(#212121b6, #212121b6), url(../images/bg-3.webp);
+  height: 250px;
+  margin-top: -55px;
+}
+
+.dash-aside-bg,
+.menu-sidebar__content {
   box-shadow: none !important;
-  background: #fff !important;
+  background: #212121 !important;
+  border: none !important;
 }
 
 .bg-search,
 .bg-admin {
-  background: #2b96da;
+  background: #fff;
 }
 
 /* Barra-menu */
@@ -15,21 +23,16 @@
 
 .borda-top {
   background-color: #fff;
-  border-top: 4px solid #2b96da;
+  border-top: 4px solid #fff;
 }
 
 .menu-sidebar__content li.active {
-  border-left: 2px solid #2b96da !important;
-
-  padding-left: 1rem;
+  border-right: 2px solid #fff !important;
 }
 
-.menu-sidebar__content li.active a {
-  color: #2b96da !important;
-}
-
-.borda-left {
-  border-left: 4px solid #2b96da;
+.menu-sidebar__content li.active a,
+.menu-sidebar__content li a:hover {
+  color: #fff !important;
 }
 
 .borda-icons {
@@ -42,7 +45,7 @@
   width: 60px;
   height: 60px;
   text-align: center;
-  background: #2b96da;
+  background: #212121;
 }
 
 .borda-icons i {
@@ -59,7 +62,7 @@
 .borda-img {
   width: 90px;
   height: 90px;
-  background: #2b96da;
+  background: #212121;
 
   border-radius: 50%;
 
@@ -79,6 +82,6 @@
 
 /* Forms */
 .profile-user input {
-  border: 1.5px solid #2b96da !important;
+  border: 1.5px solid #169db4 !important;
   padding: 15px !important;
 }
