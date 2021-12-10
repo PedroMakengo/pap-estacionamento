@@ -4,6 +4,10 @@
   z-index: 1;
 }
 
+.owl-nav {
+  display: none;
+}
+
 .block-13 .owl-nav,
 .slide-one-item .owl-nav {
   position: relative;
