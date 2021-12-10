@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar sessão</title>
+    <link rel="stylesheet" href="assets/styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/styles/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/styles/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="assets/styles/slider.css" />
+
+    <!-- Meu Estilo -->
+    <link rel="stylesheet" href="assets/styles/estacionamento.css" />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+
+        margin: 0;
+
+        background: linear-gradient(#0000008a, #0000008a),
+          url(assets/images/bg-3.webp);
+        background-size: cover;
+
+        display: flex;
+        font-family: Poppins;
+      }
+      .content-login {
+        width: 35%;
+        background-color: #fff;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .content-login form {
+        width: 70%;
+        margin-top: 2rem;
+      }
+
+      .content-login form input {
+        display: flex;
+        width: 100%;
+        height: 4rem;
+
+        margin-bottom: 1rem;
+        border-radius: 0.25rem;
+
+        border: 1px solid #169db4;
+        padding-left: 1rem;
+
+        color: #169db4;
+      }
+
+      .content-login form input[type="submit"] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: #fff;
+
+        background: #169db4;
+
+        width: 100%;
+
+        text-transform: uppercase;
+
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content-login">
+      <h3 class="text-uppercase">System-Estans</h3>
+      <form action="">
+        <input type="email" placeholder="email@gmail.com" />
+        <input type="password" placeholder="palavra-passe" />
+        <input type="submit" value="Iniciar sessão" />
+      </form>
+
+      <p>Criar um estacionamento agora ? <a href="index.html">clique</a></p>
+    </div>
+
+    <div class="loader">
+      <img src="assets/images/loader.gif" alt="" />
+    </div>
+
+    <script src="assets/scripts/jquery-3.2.1.min.js"></script>
+    <script src="assets/scripts/bootstrap.min.js"></script>
+    <script src="assets/scripts/owl.carousel.min.js"></script>
+    <script src="assets/scripts/mk.js"></script>
+
+    <script>
+      const loader = document.querySelector(".loader");
+
+      setTimeout(() => {
+        loader.style.display = "none";
+        loader.remove();
+      }, 1000);
+    </script>
+  </body>
+</html>

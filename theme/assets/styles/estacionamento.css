@@ -180,7 +180,7 @@ nav a.active {
 /* TESTEMUNHOS */
 .testemunhos {
   height: 53vh;
-  background: #242424;
+  background: linear-gradient(#000000c4, #000000c4), url(../images/bg-7.jpg);
   margin-top: 6rem;
 
   padding: 3rem 0;
