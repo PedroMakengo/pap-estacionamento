@@ -23,7 +23,13 @@
           <div class="col-lg-6 text-right">
             <nav class="menu">
               <a href="index.html" class="active">Início</a>
-              <a href="criar-estacionamento.html">Criar Estacionamento</a>
+              <a
+                href="#"
+                class=""
+                data-toggle="modal"
+                data-target=".criar-estabelecimento"
+                >Criar Estacionamento</a
+              >
               <a href="login.html">Iniciar sessão</a>
             </nav>
           </div>
@@ -249,6 +255,22 @@
     <footer>
       <p>Todos direitos reservados</p>
     </footer>
+
+    <!-- Modal -->
+    <div
+      class="modal fade criar-estabelecimento"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myLargeModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <h1>Criar estabelecimento</h1>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
 
     <div class="loader">
       <img src="assets/images/loader.gif" alt="" />
