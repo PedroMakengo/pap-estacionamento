@@ -1,147 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>System-Estans</title>
 
-    <!-- Fontfaces CSS-->
-    <link
-      href="../assets/style/theme/font-face.css"
-      rel="stylesheet"
-      media="all"
-    />
-    <link
-      href="../assets/fonts/font-awesome-5/css/fontawesome-all.min.css"
-      rel="stylesheet"
-      media="all"
-    />
-    <link
-      href="../assets/vendor/mdi-font/css/material-design-iconic-font.min.css"
-      rel="stylesheet"
-      media="all"
-    />
-
-    <!-- Bootstrap CSS-->
-    <link
-      href="../assets/vendor/bootstrap-4.1/bootstrap.min.css"
-      rel="stylesheet"
-      media="all"
-    />
-
-    <!-- Vendor CSS-->
-    <link
-      href="../assets/vendor/animsition/animsition.min.css"
-      rel="stylesheet"
-      media="all"
-    />
-
-    <!-- Main CSS-->
-    <link
-      href="../assets/styles/theme/theme.css"
-      rel="stylesheet"
-      media="all"
-    />
-
-    <!-- Animações -->
-    <link rel="stylesheet" href="../assets/styles/theme/aos.css" />
-
-    <link rel="stylesheet" href="../assets/styles/dashboard.css" />
-  </head>
+  <!-- Head -->
+  <?php require 'includes/head.php'; ?>
+  <!-- Head -->
 
   <body class="animsition">
     <div class="page-wrapper">
-      <!-- HEADER MOBILE-->
-      <header class="header-mobile d-block d-lg-none">
-        <div class="header-mobile__bar">
-          <div class="container-fluid">
-            <div class="header-mobile-inner">
-              <a class="logo" href="index.html">
-                <img src="images/icon/logo.png" alt="CoolAdmin" />
-              </a>
-              <button class="hamburger hamburger--slider" type="button">
-                <span class="hamburger-box">
-                  <span class="hamburger-inner"></span>
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <nav class="navbar-mobile">
-          <div class="container-fluid">
-            <ul class="navbar-mobile__list list-unstyled">
-              <li>
-                <a href="home.html"> <i class="fas fa-home"></i>Home</a>
-              </li>
-              <li>
-                <a href="database.html">
-                  <i class="fas fa-table"></i>Databases</a
-                >
-              </li>
-              <li>
-                <a href="providers.html">
-                  <i class="far fa-check-square"></i>Providers</a
-                >
-              </li>
-              <li>
-                <a href="schedules.html">
-                  <i class="fas fa-calendar-alt"></i>Schedules</a
-                >
-              </li>
-              <li>
-                <a href="../index.html">
-                  <i class="fas fa-map-marker-alt"></i>Sair</a
-                >
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
-      <!-- END HEADER MOBILE-->
-
-      <!-- MENU SIDEBAR-->
-      <aside class="menu-sidebar d-none d-lg-block">
-        <div class="logo dash-aside-bg">
-          <a href="#" class="text-white">
-            System-Estans
-            <!-- <img src="images/icon/logo.png" alt="Backpshift" /> -->
-          </a>
-        </div>
-        <div class="menu-sidebar__content js-scrollbar1">
-          <nav class="navbar-sidebar">
-            <ul class="list-unstyled navbar__list">
-              <li>
-                <a href="index.html"> <i class="fas fa-home"></i>Home</a>
-              </li>
-              <li>
-                <a href="estacionamentos.html">
-                  <i class="fas fa-database"></i>Estacionamentos</a
-                >
-              </li>
-              <li>
-                <a href="registro-carros.html">
-                  <i class="fab fa-superpowers"></i>Registo de Carros</a
-                >
-              </li>
-              <li class="active">
-                <a href="relatorio.html">
-                  <i class="fas fa-archive"></i>Relatório Geral</a
-                >
-              </li>
-              <li>
-                <a href="../index.html">
-                  <i class="fas fa-power-off"></i>Sair</a
-                >
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </aside>
-      <!-- END MENU SIDEBAR-->
+     <!-- Header -->
+     <?php require 'includes/header.php';?>
+     <!-- Header -->
 
       <!-- PAGE CONTAINER-->
       <div class="page-container">
@@ -243,25 +109,10 @@
       </div>
     </div>
 
-    <!-- Jquery JS-->
-    <script src="../assets/vendor/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="../assets/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="../assets/vendor/animsition/animsition.min.js"></script>
-    <!-- Main JS-->
-    <script src="../assets/scripts/theme/main.js"></script>
-
-    <script src="../assets/scripts/Chart.min.js"></script>
-    <script src="../assets/scripts/chart.js"></script>
-
-    <script src="../assets/scripts/theme/jquery-1.12.4.min.js"></script>
-    <script src="../assets/scripts/theme/aos.js"></script>
-    <script>
-      $(function () {
-        AOS.init();
-      });
-    </script>
+   <!-- Footer -->
+   <?php require 'includes/footer.php'; ?>
+    <!-- Footer -->
   </body>
 </html>
 <!-- end document-->
+
