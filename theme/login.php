@@ -22,7 +22,7 @@
         <input type="submit" value="Iniciar sessão" />
       </form>
 
-      <p>Criar um estacionamento agora ? <a href="index.html">clique</a></p>
+      <p>Criar um estacionamento agora ? <a href="index.php">clique</a></p>
     </div>
 
     <div class="loader">

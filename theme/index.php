@@ -30,7 +30,7 @@
                 data-target=".criar-estabelecimento"
                 >Solicitar vaga</a
               >
-              <a href="login.html">Iniciar sessão</a>
+              <a href="login.php">Iniciar sessão</a>
             </nav>
           </div>
         </div>
