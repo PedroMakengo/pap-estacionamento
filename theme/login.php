@@ -13,11 +13,7 @@
     <!-- Meu Estilo -->
     <link rel="stylesheet" href="assets/styles/login.css" />
     <style>
-      input[type="submit"] {
-        background: #169db4 !important;
-        border-color: #169db4 !important;
-        color: #fff;
-      }
+    
 
     </style>
   </head>
