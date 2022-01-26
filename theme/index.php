@@ -28,7 +28,7 @@
                 class=""
                 data-toggle="modal"
                 data-target=".criar-estabelecimento"
-                >Solicitar vaga</a
+                >Criar conta</a
               >
               <a href="login.php">Iniciar sessão</a>
             </nav>
@@ -117,9 +117,27 @@
       aria-labelledby="myLargeModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-dialog modal-dialog-centered modal-md">
         <div class="modal-content">
-          <h1>Criar estabelecimento</h1>
+          <div class="modal-body">
+            <form action="" method="POST">
+              <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" class="form-control form-control-lg">
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" class="form-control form-control-lg">
+              </div>
+              <div class="form-group">
+                <label for="senha">Palavra-passe</label>
+                <input type="password" id="senha" class="form-control form-control-lg">
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Criar conta" class="form-control form-control-lg">
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

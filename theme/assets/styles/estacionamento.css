@@ -80,3 +80,9 @@ nav a.active {
   display: flex;
   align-items: center;
 }
+
+input[type="submit"] {
+  background: #169db4;
+  border-color: #169db4;
+  color: #fff;
+}
