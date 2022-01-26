@@ -58,18 +58,18 @@
         >
           <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
-              <li class="active">
-                <a href="index.html">
+              <li class="<?= $_GET['id'] == 'home' ? 'active' : '' ?>">
+                <a href="index.php?id=home">
                   <i class="fas fa-home"></i>Página Inicial</a
                 >
               </li>
-              <li>
-                <a href="cadastro.html">
+              <li class="<?= $_GET['id'] == 'solicitar-vaga' ? 'active' : '' ?>">
+                <a href="cadastro.php?id=solicitar-vaga">
                   <i class="fas fa-database"></i>Solicitar vaga</a
                 >
               </li>
-              <li>
-                <a href="entradas.html">
+              <li class="<?= $_GET['id'] == 'disponiveis' ? 'active' : '' ?>">
+                <a href="disponiveis.php?id=disponiveis">
                   <i class="fab fa-superpowers"></i>Espaços Disponíveis</a
                 >
               </li>
