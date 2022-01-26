@@ -2,7 +2,7 @@
 <?php
 
   $bd_host = "localhost";
-  $bd_name = "estagio-pap";
+  $bd_name = "estacionamento";
   $bd_charset="UTF8";
 
   $bd_usuario ="root";
