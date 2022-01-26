@@ -58,25 +58,25 @@
           <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
               <li class="active">
-                <a href="index.html"> <i class="fas fa-home"></i>Home</a>
+                <a href="index.php"> <i class="fas fa-home"></i>Home</a>
               </li>
               <li>
-                <a href="estacionamentos.html">
-                  <i class="fas fa-database"></i>Estacionamentos</a
+                <a href="clientes.php">
+                  <i class="fas fa-database"></i>Clientes</a
                 >
               </li>
               <li>
-                <a href="registro-carros.html">
+                <a href="registro-carros.php">
                   <i class="fab fa-superpowers"></i>Registo de Carros</a
                 >
               </li>
               <li>
-                <a href="relatorio.html">
+                <a href="relatorio.php">
                   <i class="fas fa-archive"></i>Relatório Geral</a
                 >
               </li>
               <li>
-                <a href="../index.html">
+                <a href="?logout=true">
                   <i class="fas fa-power-off"></i>Sair</a
                 >
               </li>
