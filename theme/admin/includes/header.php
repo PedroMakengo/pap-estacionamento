@@ -57,21 +57,21 @@
         <div class="menu-sidebar__content js-scrollbar1">
           <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
-              <li class="active">
-                <a href="index.php"> <i class="fas fa-home"></i>Home</a>
+              <li class="<?= $_GET['id'] == 'home' ? 'active' : '' ?>">
+                <a href="index.php?id=home"> <i class="fas fa-home"></i>Home</a>
               </li>
-              <li>
-                <a href="clientes.php">
+              <li class="<?= $_GET['id'] == 'clientes' ? 'active' : '' ?>">
+                <a href="clientes.php?id=clientes">
                   <i class="fas fa-database"></i>Clientes</a
                 >
               </li>
-              <li>
-                <a href="registro-carros.php">
+              <li class="<?= $_GET['id'] == 'carros' ? 'active' : '' ?>">
+                <a href="registro-carros.php?id=carros">
                   <i class="fab fa-superpowers"></i>Registo de Carros</a
                 >
               </li>
-              <li>
-                <a href="relatorio.php">
+              <li class="<?= $_GET['id'] == 'relatorio' ? 'active' : '' ?>">
+                <a href="relatorio.php?id=relatorio">
                   <i class="fas fa-archive"></i>Relatório Geral</a
                 >
               </li>

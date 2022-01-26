@@ -83,11 +83,13 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th>Item 1</th>
-                          <th>Item 1</th>
-                          <th>Item 1</th>
-                          <th>Item 1</th>
-                          <th>Item 1</th>
+                          <th>Id</th>
+                          <th>Modelo</th>
+                          <th>Marca</th>
+                          <th>Dono</th>
+                          <th>Entrada</th>
+                          <th>Saída</th>
+                          <th class="text-center">Ações</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -97,6 +99,8 @@
                           <td>Teste 01</td>
                           <td>Teste 01</td>
                           <td>Teste 01</td>
+                          <td>Teste 01</td>
+                          <td class="text-center"s>Teste 01</td>
                         </tr>
                       </tbody>
                     </table>

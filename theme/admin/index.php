@@ -86,7 +86,7 @@
                       </div>
                       <div class="col-lg-8">
                         <h3>40,2019$</h3>
-                        <span>Databases</span>
+                        <span>Total de Clientes</span>
                       </div>
                     </div>
                   </div>
@@ -106,7 +106,7 @@
                       </div>
                       <div class="col-lg-8">
                         <h3>40,2019$</h3>
-                        <span>Providers</span>
+                        <span>Vagas Solicitadas</span>
                       </div>
                     </div>
                   </div>
@@ -126,7 +126,7 @@
                       </div>
                       <div class="col-lg-8">
                         <h3>40,2019$</h3>
-                        <span>Schedules</span>
+                        <span>Vagas Disponíveis</span>
                       </div>
                     </div>
                   </div>

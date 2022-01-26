@@ -78,16 +78,16 @@
                   data-aos-duration="2300"
                 >
                   <div class="rounded p-4 borda-top">
-                    <h1 class="title">Tabela de Estacionamentos</h1>
+                    <h1 class="title">Tabela de Clientes</h1>
                     <hr />
                     <table class="table">
                       <thead>
                         <tr>
-                          <th>Item 1</th>
-                          <th>Item 1</th>
-                          <th>Item 1</th>
-                          <th>Item 1</th>
-                          <th class="text-center">Item 1</th>
+                          <th>Nome</th>
+                          <th>E-mail</th>
+                          <th>Telefone</th>
+                          <th>Morada</th>
+                          <th class="text-center">Ações</th>
                         </tr>
                       </thead>
                       <tbody>
