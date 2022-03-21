@@ -1,5 +1,5 @@
-<!-- HEADER MOBILE-->
-<header class="header-mobile d-block d-lg-none">
+      <!-- HEADER MOBILE-->
+      <header class="header-mobile d-block d-lg-none">
         <div class="header-mobile__bar">
           <div class="container-fluid">
             <div class="header-mobile-inner">
@@ -50,11 +50,9 @@
 
       <!-- MENU SIDEBAR-->
       <aside class="menu-sidebar d-none d-lg-block" >
-        <div class="logo dash-aside-bg" style="background: #169db4 !important">
-          <a href="#" class="text-white"> System-Estans </a>
-        </div>
+        <div class="logo dash-aside-bg" style="background: #835AFD !important"></div>
         <div class="menu-sidebar__content js-scrollbar1 bg-user-estacionamento"
-        style="background: #169db4 !important"
+        style="background: #835AFD !important"
         >
           <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
@@ -73,6 +71,11 @@
                   <i class="fab fa-superpowers"></i>Espaços Disponíveis</a
                 >
               </li>
+              <li class="<?= $_GET['id'] == 'perfil' ? 'active' : '' ?>">
+                <a href="disponiveis.php?id=disponiveis">
+                  <i class="fab fa-superpowers"></i>Meu Perfil</a
+                >
+              </li>
             
               <li>
                 <a href="?logout=true">
@@ -81,6 +84,9 @@
               </li>
             </ul>
           </nav>
+          <div class="stans-office">
+            <h2>Stans Office</h2>
+          </div>
         </div>
       </aside>
       <!-- END MENU SIDEBAR-->
