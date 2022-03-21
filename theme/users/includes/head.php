@@ -97,5 +97,13 @@
       .bg-padrao {
         background-color: #E5E5E5;
       }
+
+      .btn-primary {
+        background: #835AFD !important; 
+        color: #fff; 
+        border: 2px solid #835AFD !important; 
+      }
+
+      
     </style>
   </head>

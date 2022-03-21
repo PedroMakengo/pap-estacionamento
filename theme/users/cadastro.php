@@ -30,7 +30,21 @@
                   data-aos-duration="2300"
                 >
                   <div class="rounded p-4 borda-top border-info bg-padrao">
-                    <h1 class="title">Registo de entradas</h1>
+                    <form method="POST">
+                      <div class="row">
+                        <div class="col-lg-12 form-group">
+                          <label for="">Lugares Livre</label>
+                          <input type="text" class="form-control form-control-lg rounded" placeholder="">
+                        </div>
+                        <div class="col-lg-12 form-group">
+                          <label for="">Mensagem</label>
+                          <textarea class="form-control form-control-lg"></textarea>
+                        </div>
+                        <div class="col-lg-12">
+                          <input type="submit" value="Enviar Solicitação" class="btn btn-primary">
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>

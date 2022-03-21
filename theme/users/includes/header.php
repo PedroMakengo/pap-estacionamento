@@ -72,7 +72,7 @@
                 >
               </li>
               <li class="<?= $_GET['id'] == 'perfil' ? 'active' : '' ?>">
-                <a href="disponiveis.php?id=disponiveis">
+                <a href="perfil.php?id=perfil">
                   <i class="fab fa-superpowers"></i>Meu Perfil</a
                 >
               </li>

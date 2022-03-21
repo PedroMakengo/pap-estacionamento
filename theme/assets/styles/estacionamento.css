@@ -31,7 +31,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   height: 10vh;
 }
 
@@ -55,13 +54,13 @@ body {
 nav a:hover,
 nav a.active:hover {
   text-decoration: none;
-  border-bottom: 2px solid #169db4;
-  color: #169db4;
+  border-bottom: 2px solid #fff;
+  color: #fff;
 }
 
 nav a.active {
-  border-bottom: 2px solid #169db4;
-  color: #169db4;
+  border-bottom: 2px solid #fff;
+  color: #fff;
 }
 
 /* Slider */
@@ -82,7 +81,7 @@ nav a.active {
 }
 
 input[type="submit"] {
-  background: #169db4;
-  border-color: #169db4;
+  background: #835afd;
+  border-color: #835afd;
   color: #fff;
 }

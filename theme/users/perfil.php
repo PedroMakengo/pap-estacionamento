@@ -22,38 +22,26 @@
               <div class="row mt-4">
                 <div class="col-lg-12 col-xl-12">
                   <div class="border-info p-4 ">
-                    <p>Espaços disponíveis para estacionar o teu carro...</p>
+                    <p>Meu Perfil...</p>
                   </div>
                 </div>
                 <div
-                  class="col-lg-12 col-lg-12 col-sm-12 mt-4"
+                  class="col-lg-4 col-lg-4 col-sm-12 mt-4"
                   data-aos="fade-left"
                   data-aos-duration="2300"
                 >
-                  <div class="rounded p-4 borda-top border-info bg-padrao">
-                    <h1 class="title">Registo de entradas</h1>
-                    <table class="table mt-4">
-                      <thead>
-                        <tr>
-                          <th>Item 0</th>
-                          <th>Item 1</th>
-                          <th>Item 2</th>
-                          <th>Item 3</th>
-                          <th>Item 4</th>
-                          <th>Item 5</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Item 0</td>
-                          <td>Item 1</td>
-                          <td>Item 2</td>
-                          <td>Item 3</td>
-                          <td>Item 4</td>
-                          <td>Item 5</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <div class="p-4 card">
+                    <h1>Olá Mundo</h1>
+                  </div>
+                </div>
+
+                <div
+                  class="col-lg-8 col-lg-8 col-sm-12 mt-4"
+                  data-aos="fade-left"
+                  data-aos-duration="2300"
+                >
+                 <div class="p-4 card">
+                    <h1>Olá Mundo</h1>
                   </div>
                 </div>
               </div>
