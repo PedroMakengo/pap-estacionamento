@@ -87,5 +87,15 @@
         font-size: 20px !important;
         color: #835AFD;
       }
+
+      .border-info {
+        border-radius: 0.25rem;
+        border: 2px solid #835AFD !important; 
+        color: #835AFD;
+      }
+
+      .bg-padrao {
+        background-color: #E5E5E5;
+      }
     </style>
   </head>
