@@ -1,5 +1,6 @@
+<?php require '../source/controls/Login.php' ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,18 +13,14 @@
 
     <!-- Meu Estilo -->
     <link rel="stylesheet" href="assets/styles/login.css" />
-    <style>
-    
-
-    </style>
   </head>
   <body>
     <div class="content-login">
       <h3 class="text-uppercase">System-Estans</h3>
-      <form action="">
-        <input type="email" placeholder="email@gmail.com" />
-        <input type="password" placeholder="palavra-passe" />
-        <input type="submit" value="Iniciar sessão" />
+      <form method="POST">
+        <input type="email" placeholder="email@gmail.com" name="email" />
+        <input type="password" placeholder="palavra-passe" name="senha" />
+        <input type="submit" value="Iniciar sessão" name="logar" />
       </form>
 
       <p>Criar um estacionamento agora ? <a href="index.php">clique</a></p>
