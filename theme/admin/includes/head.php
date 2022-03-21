@@ -51,4 +51,13 @@
     <link rel="stylesheet" href="../assets/styles/theme/aos.css" />
 
     <link rel="stylesheet" href="../assets/styles/dashboard.css" />
+
+    <style>
+       .navbar-sidebar li.active, 
+      .navbar-sidebar li.active a {
+        background-color: #fff !important;
+        border-radius: 0.5rem;
+        color: #000 !important;
+      }
+    </style>
   </head>
