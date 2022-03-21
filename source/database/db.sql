@@ -13,11 +13,23 @@ CREATE TABLE tb_vaga(
   espaco_vago varchar(50),
   preco int(4),
   descricao text,
+  FOREIGN KEY (id_admin) REFERENCES tb_admin (id_admin) ON DELETE CASCADE ON UPDATE;
+);
+
+CREATE TABLE tb_solicitacao_vaga (
+  id_solicitacao_vaga int(11) PRIMARY KEY AUTO_INCREMENT,
+  id_cliente int(11),
+  mensagem varchar(50),
+  estado_solicitacao int(2),
+  data_solicitacao datetime, 
+  FOREIGN KEY (id_cliente) REFERENCES clientes (id_cliente) ON DELETE CASCADE ON UPDATE
 );
 
 CREATE TABLE tb_entrada_saida(
   id_entrada int(11) PRIMARY KEY AUTO_INCREMENT,
   id_carro int(11),
+  dia_entrada day(10),
+  dia_saida day(10),
   hora_entrada time,
   hora_saida time, 
   estado int(2),
@@ -37,5 +49,6 @@ CREATE TABLE tb_carro_cliente (
   cor varchar(50),
   modelo varchar(50),
   matricula varchar(50), 
-  data_registro_carro datetime
-);
+  data_registro_carro datetime, 
+  FOREIGN KEY (id_cliente) REFERENCES clientes (id_cliente) ON DELETE CASCADE ON UPDATE
+  );
