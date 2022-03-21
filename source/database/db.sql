@@ -10,11 +10,18 @@ CREATE TABLE tb_admin(
 CREATE TABLE tb_vaga(
   id_vaga int(11) PRIMARY KEY AUTO_INCREMENT, 
   id_admin int(11),
-  vaga varchar(50)
+  espaco_vago varchar(50),
+  preco int(4),
+  descricao text,
 );
 
 CREATE TABLE tb_entrada_saida(
-
+  id_entrada int(11) PRIMARY KEY AUTO_INCREMENT,
+  id_carro int(11),
+  hora_entrada time,
+  hora_saida time, 
+  estado int(2),
+  data_registro_entrada datetime
 );
 
 CREATE TABLE tb_cliente(
@@ -22,13 +29,13 @@ CREATE TABLE tb_cliente(
   nome_cliente varchar(50),
   senha_cliente varchar(50),
   foto_cliente varchar(250),
-  morada_cliente varchar(50)
 );
 
 CREATE TABLE tb_carro_cliente (
-  id_carro int(11), 
-)
-
-CREATE TABLE tb_estacionamento();
-
-CREATE TABLE tb_preco();
+  id_carro int(11) PRIMARY KEY AUTO_INCREMENT, 
+  id_cliente int(11),
+  cor varchar(50),
+  modelo varchar(50),
+  matricula varchar(50), 
+  data_registro_carro datetime
+);
