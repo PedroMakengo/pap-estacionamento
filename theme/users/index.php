@@ -111,8 +111,12 @@
         </div>
       </div>
     </div>
-
-   
+      
+  <!-- Footer -->
+  <?php require 'includes/footer.php' ?>
+  <!-- Footer -->
   </body>
 </html>
 <!-- end document-->
+
+
