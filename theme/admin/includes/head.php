@@ -59,5 +59,29 @@
         border-radius: 0.5rem;
         color: #000 !important;
       }
+
+      .bg-user-estacionamento {
+        display: flex !important;
+        flex-wrap: wrap;
+      }
+
+      .bg-user-estacionamento .navbar-sidebar{
+        width: 100%;
+        height: 80%;
+      }
+      .stans-office {
+        width: 100%;
+        height: 10%;
+        background-color: #E5E5E5 !important;
+
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .stans-office h2 {
+        font-size: 20px !important;
+        color: #000;
+      }
     </style>
   </head>

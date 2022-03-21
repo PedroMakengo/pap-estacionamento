@@ -54,7 +54,7 @@
             <!-- <img src="images/icon/logo.png" alt="Backpshift" /> -->
           </a>
         </div>
-        <div class="menu-sidebar__content js-scrollbar1">
+        <div class="menu-sidebar__content js-scrollbar1 bg-user-estacionamento">
           <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
               <li class="<?= $_GET['id'] == 'home' ? 'active' : '' ?>">
@@ -82,6 +82,9 @@
               </li>
             </ul>
           </nav>
+          <div class="stans-office">
+            <h2>Stans Office</h2>
+          </div>
         </div>
       </aside>
       <!-- END MENU SIDEBAR-->

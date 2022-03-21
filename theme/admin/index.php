@@ -11,58 +11,6 @@
 
       <!-- PAGE CONTAINER-->
       <div class="page-container">
-        <!-- HEADER DESKTOP-->
-        <header class="header-desktop bg-admin barra-menu">
-          <div class="section__content section__content--p30">
-            <div class="container-fluid">
-              <div class="header-wrap">
-                <div class="form-header" action="" method="POST"></div>
-                <div class="header-button">
-                  <div class="account-wrap">
-                    <div class="account-item clearfix js-item-menu">
-                      <div class="image">
-                        <img src="../assets/images/bg-4.png" alt="José Cage" />
-                      </div>
-                      <div class="content">
-                        <a class="js-acc-btn" href="#">Dom Chocas</a>
-                      </div>
-                      <div class="account-dropdown js-dropdown">
-                        <div class="info clearfix">
-                          <div class="image">
-                            <a href="#">
-                              <img
-                                src="../assets/img/profile/foto.jpg"
-                                alt="José Cage"
-                              />
-                            </a>
-                          </div>
-                          <div class="content">
-                            <h5 class="name">
-                              <a href="#">José Cage</a>
-                            </h5>
-                            <span class="email">josecage@gmail.com</span>
-                          </div>
-                        </div>
-                        <div class="account-dropdown__body">
-                          <div class="account-dropdown__item">
-                            <a href="profile.html">
-                              <i class="zmdi zmdi-settings"></i>Perfil</a
-                            >
-                          </div>
-                        </div>
-                        <div class="account-dropdown__footer">
-                          <a href="#"> <i class="zmdi zmdi-power"></i>Logout</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-        <!-- HEADER DESKTOP-->
-
         <!-- MAIN CONTENT-->
         <div class="main-content">
           <div class="banner-dashboard"></div>
