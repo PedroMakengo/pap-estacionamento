@@ -36,13 +36,15 @@ CREATE TABLE tb_solicitacao_vaga (
 CREATE TABLE tb_entrada_saida(
   id_entrada int(11) PRIMARY KEY AUTO_INCREMENT,
   id_carro int(11),
+  id_vaga int(11),
   dia_entrada day(10),
   dia_saida day(10),
   hora_entrada time,
   hora_saida time, 
   estado int(2),
   data_registro_entrada datetime, 
-  FOREIGN KEY (id_carro) REFERENCES tb_carro_cliente (id_carro) ON DELETE CASCADE ON UPDATE CASCADE
+  FOREIGN KEY (id_carro) REFERENCES tb_carro_cliente (id_carro) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (id_vaga) REFERENCES tb_vaga (id_vaga) ON DELETE CASCADE ON UPDATE
 );
 
 CREATE TABLE tb_cliente(
@@ -55,6 +57,8 @@ CREATE TABLE tb_cliente(
   idade varchar(2),
   data_registro_cliente datetime,
 );
+
+
 
 CREATE TABLE tb_carro_cliente (
   id_carro int(11) PRIMARY KEY AUTO_INCREMENT, 

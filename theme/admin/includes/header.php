@@ -62,17 +62,22 @@
               </li>
               <li class="<?= $_GET['id'] == 'clientes' ? 'active' : '' ?>">
                 <a href="clientes.php?id=clientes">
-                  <i class="fas fa-database"></i>Clientes</a
+                  <i class="fas fa-users"></i>Clientes</a
                 >
               </li>
               <li class="<?= $_GET['id'] == 'carros' ? 'active' : '' ?>">
                 <a href="registro-carros.php?id=carros">
-                  <i class="fab fa-superpowers"></i>Registo de Carros</a
+                  <i class="fas fa-car"></i>Registo de Carros</a
                 >
               </li>
               <li class="<?= $_GET['id'] == 'relatorio' ? 'active' : '' ?>">
                 <a href="relatorio.php?id=relatorio">
                   <i class="fas fa-archive"></i>Relatório Geral</a
+                >
+              </li>
+              <li class="<?= $_GET['perfil'] == 'perfil' ? 'active' : '' ?>">
+                <a href="perfil.php?id=perfil">
+                  <i class="fas fa-user"></i>Meu Perfil</a
                 >
               </li>
               <li>

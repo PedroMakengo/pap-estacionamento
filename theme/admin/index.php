@@ -122,34 +122,36 @@
                   data-aos-duration="2600"
                 >
                   <div class="borda-top rounded p-4 bg-white">
-                    <h1 class="title">Estacionados</h1>
-                    <hr />
+                    <h1 class="title pb-3">Clientes</h1>
                     <div class="row provedores">
                       <div class="col-lg-12">
                         <table class="table">
                           <thead class="bg-admin">
                             <tr>
-                              <th class="text-white">Type</th>
-                              <th class="text-white">Provedor</th>
+                              <th>#</th>
+                              <th>Nº BI</th>
                             </tr>
                           </thead>
                           <tbody>
+                            <?php 
+
+                              $buscandoAlgunsClientes = new Model();
+                              $buscandoClientes = $buscandoAlgunsClientes->EXE_QUERY("SELECT * FROM tb_cliente LIMIT 5");
+                              if(count($buscandoClientes)):
+                                foreach($buscandoClientes as $mostrarCliente):
+                            ?>
                             <tr>
-                              <td>Online</td>
-                              <td>3</td>
+                              <td><?= $mostrarCliente['id_cliente'] ?></td>
+                              <td><a href="perfil-cliente.php?id=<?= $mostrarCliente['id_cliente'] ?>"><?= $mostrarCliente['num_bi'] ?></a></td>
                             </tr>
-                            <tr>
-                              <td>Founder & CEO</td>
-                              <td>32</td>
-                            </tr>
-                            <tr>
-                              <td>Marco Botton</td>
-                              <td>13</td>
-                            </tr>
-                            <tr>
-                              <td>Marco Botton</td>
-                              <td>13</td>
-                            </tr>
+                            <?php 
+                                endforeach;
+                              else:?>
+                              <tr>
+                                <td colspan="2" class="bg-warning text-white">Não existe ainda nenhum cliente</td>
+                              </tr>
+                            <?php 
+                              endif;?>
                           </tbody>
                         </table>
                       </div>

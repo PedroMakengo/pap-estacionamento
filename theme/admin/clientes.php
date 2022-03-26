@@ -26,32 +26,44 @@
                   data-aos-duration="2300"
                 >
                   <div class="rounded p-4 borda-top">
-                    <h1 class="title">Tabela de Clientes</h1>
-                    <hr />
+                    <h1 class="title pb-3">Tabela de Clientes</h1>
                     <table class="table">
                       <thead>
                         <tr>
+                          <th>#</th>
                           <th>Nome</th>
-                          <th>E-mail</th>
                           <th>Telefone</th>
-                          <th>Morada</th>
+                          <th>Genero</th>
                           <th class="text-center">Ações</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>Teste 01</td>
-                          <td>Teste 01</td>
-                          <td>Teste 01</td>
-                          <td>Teste 01</td>
-                          <td class="text-center">
-                            <a
-                              href="ver-estabelecimento.html"
-                              class="btn-sm btn-success"
-                              >ver</a
-                            >
-                          </td>
-                        </tr>
+                          <?php 
+                            $buscandoAlgunsClientes = new Model();
+                            $buscandoClientes = $buscandoAlgunsClientes->EXE_QUERY("SELECT * FROM tb_cliente");
+                            if(count($buscandoClientes)):
+                              foreach($buscandoClientes as $mostrarCliente):
+                          ?>
+                            <tr>
+                              <td><?= $mostrarCliente['id_cliente'] ?></td>
+                              <td><?= $mostrarCliente['nome_cliente'] ?></td>
+                              <td><?= $mostrarCliente['num_bi'] ?></td>
+                              <td><?= $mostrarCliente['tel_cliente'] ?></td>
+                              <td><?= $mostrarCliente['genero'] ?></td>
+                              <td>
+                                <a href="perfil-usuario.php?id=<?= $mostrarCliente['id_cliente'] ?>">
+                                  Abrir
+                                </a>
+                              </td>
+                            </tr>
+                          <?php 
+                            endforeach;
+                          else:?>
+                          <tr>
+                            <td colspan="12" class="bg-warning text-white text-center">Não existe ainda nenhum cliente</td>
+                          </tr>
+                          <?php 
+                          endif;?>
                       </tbody>
                     </table>
                   </div>
