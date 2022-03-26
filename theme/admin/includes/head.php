@@ -95,6 +95,7 @@
         justify-content: center;
       }
       .stans-office h2 {
+        font-weight: normal;
         font-size: 20px !important;
         color: #000;
       }
