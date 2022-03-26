@@ -1,6 +1,9 @@
 <?php 
   require '../source/Config.php';
   require '../source/Model.php';
+
+  // Session
+  session_start();
   require '../source/controls/Login.php';
 ?>
 

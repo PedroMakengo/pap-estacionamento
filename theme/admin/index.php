@@ -29,11 +29,17 @@
                     <div class="row">
                       <div class="col-lg-4">
                         <div class="borda-icons shadow">
-                          <i class="fas fa-database"></i>
+                          <i class="fas fa-users"></i>
                         </div>
                       </div>
                       <div class="col-lg-8">
-                        <h3>40,2019$</h3>
+                        <h3>
+                          <?php 
+                            $contabilizandoClientes = new Model();
+                            $contar = $contabilizandoClientes->EXE_QUERY("SELECT * FROM tb_cliente"); 
+                            echo count($contar);
+                          ?>
+                        </h3>
                         <span>Total de Clientes</span>
                       </div>
                     </div>
@@ -49,11 +55,17 @@
                     <div class="row">
                       <div class="col-lg-4">
                         <div class="borda-icons shadow">
-                          <i class="fas fa-anchor"></i>
+                          <i class="fas fa-database"></i>
                         </div>
                       </div>
                       <div class="col-lg-8">
-                        <h3>40,2019$</h3>
+                        <h3>
+                        <?php 
+                            $contabilizandoVagas = new Model();
+                            $contar = $contabilizandoVagas->EXE_QUERY("SELECT * FROM tb_solicitacao_vaga"); 
+                            echo count($contar);
+                          ?>
+                        </h3>
                         <span>Vagas Solicitadas</span>
                       </div>
                     </div>
@@ -69,12 +81,18 @@
                     <div class="row">
                       <div class="col-lg-4">
                         <div class="borda-icons shadow">
-                          <i class="fas fa-align-right"></i>
+                          <i class="fas fa-car"></i>
                         </div>
                       </div>
                       <div class="col-lg-8">
-                        <h3>40,2019$</h3>
-                        <span>Vagas Disponíveis</span>
+                        <h3>
+                          <?php 
+                            $contabilizandoCarros = new Model();
+                            $contar = $contabilizandoCarros->EXE_QUERY("SELECT * FROM tb_carro_cliente"); 
+                            echo count($contar);
+                          ?>
+                        </h3>
+                        <span>Total de Carros</span>
                       </div>
                     </div>
                   </div>
@@ -104,7 +122,7 @@
                   data-aos-duration="2600"
                 >
                   <div class="borda-top rounded p-4 bg-white">
-                    <h1 class="title">Provedores</h1>
+                    <h1 class="title">Estacionados</h1>
                     <hr />
                     <div class="row provedores">
                       <div class="col-lg-12">
