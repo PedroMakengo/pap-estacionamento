@@ -83,5 +83,9 @@
         font-size: 20px !important;
         color: #000;
       }
+
+      .banner-dashboard {
+        margin-top: -120px
+      }
     </style>
   </head>

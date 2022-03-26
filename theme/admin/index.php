@@ -12,7 +12,7 @@
       <!-- PAGE CONTAINER-->
       <div class="page-container">
         <!-- MAIN CONTENT-->
-        <div class="main-content">
+        <div class="main-content" >
           <div class="banner-dashboard"></div>
           <div
             class="section__content section__content--p30"
