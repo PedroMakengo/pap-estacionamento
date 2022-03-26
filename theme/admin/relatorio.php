@@ -20,34 +20,24 @@
           >
             <div class="container-fluid">
               <div class="row mt-4">
+                <div class="col-lg-4 col-xl-4 col-sm-12"
+                  data-aos="fade-left"
+                  data-aos-duration="2300">
+                  <div class="rounded p-4 borda-top">
+                    <h1 class="title pb-3">Relatório Geral</h1>
+                  </div>
+
+                  <div class="rounded p-4 borda-top mt-4">
+                    <h1 class="title pb-3">Relatório Geral</h1>
+                  </div>
+                </div>
                 <div
-                  class="col-lg-12 col-lg-12 col-sm-12"
+                  class="col-lg-8 col-lg-8 col-sm-12"
                   data-aos="fade-left"
                   data-aos-duration="2300"
                 >
                   <div class="rounded p-4 borda-top">
-                    <h1 class="title">Relatório Geral</h1>
-                    <hr />
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>Item 1</th>
-                          <th>Item 1</th>
-                          <th>Item 1</th>
-                          <th>Item 1</th>
-                          <th>Item 1</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Teste 01</td>
-                          <td>Teste 01</td>
-                          <td>Teste 01</td>
-                          <td>Teste 01</td>
-                          <td>Teste 01</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    <h1 class="title pb-3">Relatório Geral</h1>
                   </div>
                 </div>
               </div>
