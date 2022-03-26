@@ -7,6 +7,14 @@ CREATE TABLE tb_admin(
   foto varchar(250)
 );
 
+-- INSERT ADMIN 
+INSERT INTO tb_admin (id_admin, nome, email, senha, foto ) 
+VALUES (1, "Dom Chocas", "domchocas@gmail.com", md5(md5(123)), "dom.jpg")
+
+INSERT INTO tb_admin (id_admin, nome, email, senha, foto ) 
+VALUES (2, "Manuel Santos", "manuelsantos@gmail.com", md5(md5(123)), "padrao.jpg")
+
+
 CREATE TABLE tb_vaga(
   id_vaga int(11) PRIMARY KEY AUTO_INCREMENT, 
   id_admin int(11),
@@ -22,7 +30,7 @@ CREATE TABLE tb_solicitacao_vaga (
   mensagem varchar(50),
   estado_solicitacao int(2),
   data_solicitacao datetime, 
-  FOREIGN KEY (id_cliente) REFERENCES clientes (id_cliente) ON DELETE CASCADE ON UPDATE
+  FOREIGN KEY (id_cliente) REFERENCES clientes (id_cliente) ON DELETE CASCADE ON UPDATE 
 );
 
 CREATE TABLE tb_entrada_saida(
@@ -33,7 +41,8 @@ CREATE TABLE tb_entrada_saida(
   hora_entrada time,
   hora_saida time, 
   estado int(2),
-  data_registro_entrada datetime
+  data_registro_entrada datetime, 
+  FOREIGN KEY (id_carro) REFERENCES tb_carro_cliente (id_carro) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE tb_cliente(
@@ -41,6 +50,10 @@ CREATE TABLE tb_cliente(
   nome_cliente varchar(50),
   senha_cliente varchar(50),
   foto_cliente varchar(250),
+  num_bi varchar(20), 
+  genero varchar(2),
+  idade varchar(2),
+  data_registro_cliente datetime,
 );
 
 CREATE TABLE tb_carro_cliente (
