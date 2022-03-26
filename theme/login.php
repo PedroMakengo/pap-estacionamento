@@ -1,4 +1,9 @@
-<?php require '../source/controls/Login.php' ?>
+<?php 
+  require '../source/Config.php';
+  require '../source/Model.php';
+  require '../source/controls/Login.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
