@@ -11,21 +11,13 @@
 
     <!-- Fontfaces CSS-->
     <link
-      href="../assets/style/theme/font-face.css"
       rel="stylesheet"
-      media="all"
+      href="../assets/fonts/font-awesome-4.7/css/font-awesome.min.css"
     />
     <link
+      rel="stylesheet"
       href="../assets/fonts/font-awesome-5/css/fontawesome-all.min.css"
-      rel="stylesheet"
-      media="all"
     />
-    <link
-      href="../assets/vendor/mdi-font/css/material-design-iconic-font.min.css"
-      rel="stylesheet"
-      media="all"
-    />
-
     <!-- Bootstrap CSS-->
     <link
       href="../assets/vendor/bootstrap-4.1/bootstrap.min.css"
@@ -53,11 +45,15 @@
     <link rel="stylesheet" href="../assets/styles/dashboard.css" />
 
     <style>
-       .navbar-sidebar li.active, 
+      .navbar-sidebar li.active, 
       .navbar-sidebar li.active a {
         background-color: #fff !important;
         border-radius: 0.5rem;
         color: #000 !important;
+      }
+
+      .navbar-sidebar li a {
+        padding-left: 1rem !important;
       }
 
       .bg-user-estacionamento {
