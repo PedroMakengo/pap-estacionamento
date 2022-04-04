@@ -32,6 +32,7 @@
                         <tr>
                           <th>#</th>
                           <th>Nome</th>
+                          <th>Bilhete de Identidade</th>
                           <th>Telefone</th>
                           <th>Genero</th>
                           <th class="text-center">Ações</th>
