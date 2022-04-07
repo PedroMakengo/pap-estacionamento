@@ -61,11 +61,6 @@
                   <i class="fas fa-home"></i>Página Inicial</a
                 >
               </li>
-              <li class="<?= $_GET['id'] == 'solicitar-vaga' ? 'active' : '' ?>">
-                <a href="cadastro.php?id=solicitar-vaga">
-                  <i class="fas fa-address-card"></i>Solicitar vaga</a
-                >
-              </li>
               <li class="<?= $_GET['id'] == 'carro' ? 'active' : '' ?>">
                 <a href="registrar-carro.php?id=carro">
                   <i class="fas fa-car"></i>Registrar o meu carro</a
