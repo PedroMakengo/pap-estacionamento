@@ -42,7 +42,37 @@
                   data-aos-duration="2300"
                 >
                  <div class="p-4 card">
-                    <h1>Olá Mundo</h1>
+                    <form action="">
+                      <div class="row">
+                        <div class="col-lg-6 form-group">
+                          <label for="">Usuário</label>
+                          <input type="text" class="form-control">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                          <label for="">E-mail</label>
+                          <input type="text" class="form-control">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                          <label for="">Telefone</label>
+                          <input type="text" class="form-control">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                          <label for="">Número do BI</label>
+                          <input type="text" class="form-control">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                          <label for="">Idade</label>
+                          <input type="text" class="form-control">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                          <label for="">Genero</label>
+                          <input type="text" class="form-control">
+                        </div>
+                        <div class="col-lg-4 form-group">
+                          <input type="submit" class="form-control btn btn-primary" value="Atualizar">
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
