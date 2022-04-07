@@ -37,7 +37,6 @@
           $_SESSION['idade']    = $mostrar['idade'];
         endforeach;
         echo "<script>location.href='users/index.php?id=home'</script>";
-
       else:
         echo "<script>window.alert('Este usuário não existe')</script>";
       endif;

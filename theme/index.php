@@ -42,7 +42,7 @@
       <div
         class="testimonial bg-white banner_carousel"
         style="
-          background-image: linear-gradient(#835AFD, #835afdcd),
+          background-image: linear-gradient(#5429CC, #5429CCcd),
             url(assets/images/bg-2.jpg);
           background-size: cover;
         "
@@ -63,7 +63,7 @@
       <div
         class="testimonial bg-white banner_carousel"
         style="
-          background-image: linear-gradient(#835AFD, #835afdcd),
+          background-image: linear-gradient(#5429CC, #5429CCcd),
             url(assets/images/bg-2.jpg);
           background-size: cover;
         "
@@ -87,7 +87,7 @@
       <div
         class="testimonial bg-white banner_carousel"
         style="
-          background-image: linear-gradient(#835AFD, #835afdcd),
+          background-image: linear-gradient(#5429CC, #5429CCcd),
             url(assets/images/bg-7.jpg);
           background-size: cover;
         "

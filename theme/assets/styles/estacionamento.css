@@ -32,6 +32,8 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 10vh;
+  width: 70%;
+  float: right;
 }
 
 .menu a {
@@ -47,7 +49,7 @@ body {
   font-family: Poppins;
   text-transform: uppercase;
   border-bottom: 2px solid transparent;
-  font-weight: bold;
+  font-weight: 300;
   transition: color, border 0.5s;
 }
 
@@ -81,7 +83,7 @@ nav a.active {
 }
 
 input[type="submit"] {
-  background: #835afd;
-  border-color: #835afd;
+  background: #5429cc;
+  border-color: #5429cc;
   color: #fff;
 }
