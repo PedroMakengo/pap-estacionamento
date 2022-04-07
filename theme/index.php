@@ -18,16 +18,14 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <h1 class="text-white mt-3 title-logo">System-Estans</h1>
+            <h1 class="text-white mt-3 title-logo">Avante Carros</h1>
           </div>
           <div class="col-lg-6 text-right">
             <nav class="menu">
               <a href="index.html" class="active">Início</a>
               <a
                 href="#"
-                class=""
-                data-toggle="modal"
-                data-target=".criar-estabelecimento"
+                data-toggle="modal" data-target=".bd-example-modal-lg"
                 >Criar conta</a
               >
               <a href="login.php">Iniciar sessão</a>
@@ -108,37 +106,36 @@
     </div>
     <!-- End Banner -->
 
-
     <!-- Modal -->
-    <div
-      class="modal fade criar-estabelecimento"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="myLargeModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalScrollableTitle">Registro de usuário</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
           <div class="modal-body">
-            <form action="" method="POST">
-              <div class="form-group">
-                <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" class="form-control form-control-lg">
-              </div>
-              <div class="form-group">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" class="form-control form-control-lg">
-              </div>
-              <div class="form-group">
-                <label for="senha">Palavra-passe</label>
-                <input type="password" id="senha" class="form-control form-control-lg">
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Criar conta" class="form-control form-control-lg">
+            <form action="">
+              <div class="row">
+                <div class="col-lg-4 form-group">
+                  <label for="">Nome</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-lg-4 form-group">
+                  <label for="">Nome</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-lg-4 form-group">
+                  <label for="">Nome</label>
+                  <input type="text" class="form-control">
+                </div>
               </div>
             </form>
           </div>
         </div>
+       
       </div>
     </div>
     <!-- End Modal -->

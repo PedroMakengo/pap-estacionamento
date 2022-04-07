@@ -1,5 +1,6 @@
+*,
 body {
-  font-family: Ubuntu;
+  font-family: Poppins;
 }
 
 .container {
@@ -21,7 +22,7 @@ body {
   align-items: center;
 
   font-size: 26px;
-  font-family: Roboto;
+  font-family: Poppins;
   font-weight: bold;
 
   text-transform: uppercase;
@@ -77,9 +78,13 @@ nav a.active {
 
 .home-slider .testimonial {
   height: 100vh !important;
-
   display: flex;
   align-items: center;
+}
+
+.home-slider .testimonial h1 {
+  font-weight: 300 !important;
+  text-transform: initial !important;
 }
 
 input[type="submit"] {

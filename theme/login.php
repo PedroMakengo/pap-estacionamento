@@ -24,7 +24,7 @@
   </head>
   <body>
     <div class="content-login">
-      <h3 class="text-uppercase">System-Estans</h3>
+      <h3 class="text-uppercase">Avante Carros</h3>
       <form method="POST">
         <input type="email" placeholder="email@gmail.com" name="email" />
         <input type="password" placeholder="palavra-passe" name="senha" />
