@@ -21,18 +21,18 @@
           >
             <div class="container-fluid">
               <div class="row mt-4">
-                <div class="col-lg-12 col-xl-12">
-                  <div class="card p-4 ">
-                    <p>Meu Perfil...</p>
-                  </div>
-                </div>
                 <div
                   class="col-lg-4 col-lg-4 col-sm-12 mt-1"
                   data-aos="fade-left"
                   data-aos-duration="2300"
                 >
                   <div class="p-4 card">
-                    <h1>Olá Mundo</h1>
+                    <div style="margin: 0 auto; text-align: center; ">
+                      <img src="../assets/images/profile/profile.jpg" alt="" style="border-radius: 50%; width: 100px; height: 100px;">
+                    </div>
+                    <div class="text-center mt-2">
+                      <strong><?= $_SESSION['nome'] ?></strong>
+                    </div>
                   </div>
                 </div>
 
