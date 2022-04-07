@@ -126,5 +126,9 @@
         margin-top: -120px;
         background-size: cover !important;
       }
+
+      .card nav a {
+        color: #5429CC;
+      }
     </style>
   </head>
