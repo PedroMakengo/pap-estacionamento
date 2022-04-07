@@ -34,8 +34,22 @@
                     </div>
                   </div>
 
-                  <div class="rounded p-4 borda-top mt-2" style="">
-                   
+                  <div class="rounded p-4 borda-top mt-2 text-center" style="">
+                    <?php 
+                      // Pegando os dados do administrador 
+                      $parametros = [":id" => $_SESSION['id_admin']];
+                      $adminSelected = new Model();
+                      $searchData = $adminSelected->EXE_QUERY("SELECT * FROM tb_admin WHERE id_admin=:id", $parametros);
+                      if(count($searchData)): 
+                        foreach($searchData as $mostrar):
+                          $nome = $mostrar['nome'];
+                          $foto = $mostrar['foto'];
+                          $email = $mostrar['email'];
+                        endforeach;
+                      endif;
+                    ?>
+                    <h3 class="h6">Usuário <span class="badge badge-secondary">Admin</span></h3>
+                    <h3 class="h6">E-mail <span class="badge badge-secondary"><?= $email ?></span></h3>
                   </div>
                 </div>
 
@@ -46,25 +60,27 @@
                 >
                   <div class="card">
                     <form action="" class="col-lg-12">
+                      <div class="row">
+                        <div class="col-lg-12 p-3">
+                          <h5>Dados do usuário</h5>
+                          <hr>
+                        </div>
+                      </div>
                       <div class="row mt-2">
                         <div class="form-group col-lg-6">
                           <label for="">Nome</label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" name="nome" value="<?= $nome ?>" />
                         </div>
                         <div class="form-group col-lg-6">
-                          <label for="">Nome</label>
-                          <input type="text" class="form-control">
+                          <label for="">E-mail</label>
+                          <input type="text" class="form-control"  name="nome" value="<?= $email ?>" />
                         </div>
-                        <div class="form-group col-lg-6">
-                          <label for="">Nome</label>
-                          <input type="text" class="form-control">
-                        </div>
-                        <div class="form-group col-lg-6">
-                          <label for="">Nome</label>
-                          <input type="text" class="form-control">
+                        <div class="form-group col-lg-12">
+                          <label for="">Palavra-Passe</label>
+                          <input type="text" class="form-control" name="senha">
                         </div>
                         <div class="form-group col-lg-4">
-                          <input type="submit" class="form-control btn btn-primary" value="Enviar">
+                          <input type="submit" class="form-control btn btn-secondary rounded" value="Atualizar dados">
                         </div>
                       </div>
                     </form>
