@@ -24,7 +24,7 @@
                   <div class="card p-4 ">
                     <div class="row">
                       <div class="col-lg-6">
-                        <h5>Adicionar um carro</h5>
+                        <p>Adicionar um carro</p>
                       </div>
                       <div class="col-lg-6 text-right">
                         <button class="btn btn-primary">Adicionar</button>

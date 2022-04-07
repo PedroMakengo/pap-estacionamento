@@ -23,7 +23,7 @@
               <div class="row mt-4">
                 <div class="col-lg-12 col-xl-12">
                   <div class="card p-4 ">
-                    <h4>Meu Perfil...</h4>
+                    <p>Meu Perfil...</p>
                   </div>
                 </div>
                 <div
