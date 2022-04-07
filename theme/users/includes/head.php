@@ -113,12 +113,6 @@
         color: #5429CC;
       }
 
-      .border-info {
-        border-radius: 0.25rem;
-        border: 2px solid #5429CC !important; 
-        color: #5429CC;
-      }
-
       .bg-padrao {
         background-color: #E5E5E5;
       }
@@ -128,7 +122,9 @@
         color: #fff; 
         border: 2px solid #5429CC !important; 
       }
-
-      
+      .banner-dashboard {
+        margin-top: -120px;
+        background-size: cover !important;
+      }
     </style>
   </head>

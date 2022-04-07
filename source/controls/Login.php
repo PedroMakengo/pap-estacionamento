@@ -5,7 +5,6 @@
     $email = $_POST['email'];
     $pass  = md5(md5($_POST['senha']));
 
-    
     $parametros = [
       ":email"  => $email,
       ":senha"   => $pass 
@@ -26,7 +25,7 @@
     else:
       $loginUser = $searchLogin->EXE_QUERY("SELECT * FROM tb_cliente WHERE email_cliente=:email AND senha_cliente=:senha", $parametros);
       if($loginUser):
-        foreach($loginAdmin as $mostrar): 
+        foreach($loginUser as $mostrar): 
           $_SESSION['id_admin'] = $mostrar['id_cliente'];
           $_SESSION['nome']     = $mostrar['nome_cliente'];
           $_SESSION['email']    = $mostrar['email_cliente']; 
@@ -36,6 +35,7 @@
           $_SESSION['genero']   = $mostrar['genero'];
           $_SESSION['idade']    = $mostrar['idade'];
         endforeach;
+
         echo "<script>location.href='users/index.php?id=home'</script>";
       else:
         echo "<script>window.alert('Este usuário não existe')</script>";

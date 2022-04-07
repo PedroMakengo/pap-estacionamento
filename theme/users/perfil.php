@@ -14,6 +14,7 @@
       <div class="page-container">
         <!-- MAIN CONTENT-->
         <div class="main-content">
+          <div class="banner-dashboard"></div>
           <div
             class="section__content section__content--p30"
             style="margin-top: -100px"
@@ -21,12 +22,12 @@
             <div class="container-fluid">
               <div class="row mt-4">
                 <div class="col-lg-12 col-xl-12">
-                  <div class="border-info p-4 ">
-                    <p>Meu Perfil...</p>
+                  <div class="card p-4 ">
+                    <h4>Meu Perfil...</h4>
                   </div>
                 </div>
                 <div
-                  class="col-lg-4 col-lg-4 col-sm-12 mt-4"
+                  class="col-lg-4 col-lg-4 col-sm-12 mt-1"
                   data-aos="fade-left"
                   data-aos-duration="2300"
                 >
@@ -36,7 +37,7 @@
                 </div>
 
                 <div
-                  class="col-lg-8 col-lg-8 col-sm-12 mt-4"
+                  class="col-lg-8 col-lg-8 col-sm-12 mt-1"
                   data-aos="fade-left"
                   data-aos-duration="2300"
                 >

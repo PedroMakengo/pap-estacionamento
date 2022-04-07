@@ -5,7 +5,6 @@
 
   <body class="animsition">
     <div class="page-wrapper">
-      
       <!-- Header -->
       <?php require 'includes/header.php'; ?> 
       <!-- Header -->
@@ -14,6 +13,7 @@
       <div class="page-container">
         <!-- MAIN CONTENT-->
         <div class="main-content">
+          <div class="banner-dashboard"></div>
           <div
             class="section__content section__content--p30"
             style="margin-top: -100px"
@@ -21,17 +21,24 @@
             <div class="container-fluid">
               <div class="row mt-4">
                 <div class="col-lg-12 col-xl-12">
-                  <div class="border-info p-4 ">
-                    <p>Espaços disponíveis para estacionar o teu carro...</p>
+                  <div class="card p-4 ">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <h5>Adicionar um carro</h5>
+                      </div>
+                      <div class="col-lg-6 text-right">
+                        <button class="btn btn-primary">Adicionar</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div
-                  class="col-lg-12 col-lg-12 col-sm-12 mt-4"
+                  class="col-lg-12 col-lg-12 col-sm-12 mt-1"
                   data-aos="fade-left"
                   data-aos-duration="2300"
                 >
-                  <div class="rounded p-4 borda-top border-info bg-padrao">
-                    <h1 class="title">Registo de entradas</h1>
+                <div class="rounded p-4 card">
+                    <h1 class="title">Listagem de carro</h1>
                     <table class="table mt-4">
                       <thead>
                         <tr>
@@ -63,10 +70,9 @@
       </div>
     </div>
 
-      <!-- Footer -->
-      <?php require 'includes/footer.php' ?>
-      <!-- Footer -->
-   
+    <!-- Footer -->
+    <?php require 'includes/footer.php' ?>
+    <!-- Footer -->
   </body>
 </html>
 <!-- end document-->
