@@ -50,9 +50,9 @@
 
       <!-- MENU SIDEBAR-->
       <aside class="menu-sidebar d-none d-lg-block" >
-        <div class="logo dash-aside-bg" style="background: #835AFD !important"></div>
+        <div class="logo dash-aside-bg" style="background: #5429CC !important"></div>
         <div class="menu-sidebar__content js-scrollbar1 bg-user-estacionamento"
-        style="background: #835AFD !important"
+        style="background: #5429CC !important"
         >
           <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
@@ -63,17 +63,17 @@
               </li>
               <li class="<?= $_GET['id'] == 'solicitar-vaga' ? 'active' : '' ?>">
                 <a href="cadastro.php?id=solicitar-vaga">
-                  <i class="fas fa-database"></i>Solicitar vaga</a
+                  <i class="fas fa-address-card"></i>Solicitar vaga</a
                 >
               </li>
-              <li class="<?= $_GET['id'] == 'disponiveis' ? 'active' : '' ?>">
-                <a href="disponiveis.php?id=disponiveis">
-                  <i class="fab fa-superpowers"></i>Espaços Disponíveis</a
+              <li class="<?= $_GET['id'] == 'carro' ? 'active' : '' ?>">
+                <a href="registrar-carro.php?id=carro">
+                  <i class="fas fa-car"></i>Registrar o meu carro</a
                 >
               </li>
               <li class="<?= $_GET['id'] == 'perfil' ? 'active' : '' ?>">
                 <a href="perfil.php?id=perfil">
-                  <i class="fab fa-superpowers"></i>Meu Perfil</a
+                  <i class="fas fa-user"></i>Meu Perfil</a
                 >
               </li>
             

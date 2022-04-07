@@ -55,13 +55,19 @@
     <style>
       .navbar-sidebar a {
         color: #fff !important;
+        padding-left: 0.5rem;
+
+      }
+
+      .navbar-sidebar li a {
+        padding-left: 1rem !important;
       }
 
       .navbar-sidebar li.active, 
       .navbar-sidebar li.active a {
         background-color: #fff !important;
         border-radius: 0.5rem;
-        color: #835AFD !important;
+        color: #5429CC !important;
       }
 
       .bg-user-estacionamento {
@@ -85,13 +91,13 @@
       }
       .stans-office h2 {
         font-size: 20px !important;
-        color: #835AFD;
+        color: #5429CC;
       }
 
       .border-info {
         border-radius: 0.25rem;
-        border: 2px solid #835AFD !important; 
-        color: #835AFD;
+        border: 2px solid #5429CC !important; 
+        color: #5429CC;
       }
 
       .bg-padrao {
@@ -99,9 +105,9 @@
       }
 
       .btn-primary {
-        background: #835AFD !important; 
+        background: #5429CC !important; 
         color: #fff; 
-        border: 2px solid #835AFD !important; 
+        border: 2px solid #5429CC !important; 
       }
 
       

@@ -33,10 +33,10 @@ body {
   margin-bottom: 1rem;
   border-radius: 0.25rem;
 
-  border: 1px solid #835afd;
+  border: 1px solid #5429cc;
   padding-left: 1rem;
 
-  color: #835afd;
+  color: #5429cc;
 }
 
 .content-login form input[type="submit"] {
@@ -48,7 +48,7 @@ body {
   font-weight: bold;
   color: #fff;
 
-  background: #835afd;
+  background: #5429cc;
 
   width: 100%;
 
