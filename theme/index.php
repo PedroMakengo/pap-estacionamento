@@ -1,3 +1,11 @@
+<?php 
+  require '../source/Config.php';
+  require '../source/Model.php';
+
+  require '../source/controls/Create.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -117,8 +125,12 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="">
+            <form method="POST">
               <div class="row">
+                <div class="col-lg-8 form-group">
+                  <label for="">Fotografia</label>
+                  <input type="file" name="foto" class="form-control">
+                </div>
                 <div class="col-lg-4 form-group">
                   <label for="">Nome Completo <span class="text-danger">*</span></label>
                   <input type="text" name="nome" class="form-control" placeholder="João Francisco" required>
@@ -143,7 +155,7 @@
                   <label for="">Idade <span class="text-danger">*</span></label>
                   <input type="number" name="idade" maxlength="3" class="form-control" placeholder="29" required>
                 </div>
-                <div class="col-lg-12 form-group">
+                <div class="col-lg-4 form-group">
                   <label for="">Genero <span class="text-danger">*</span></label>
                   <select name="genero" class="form-control">
                     <option value="M">Masculino</option>
