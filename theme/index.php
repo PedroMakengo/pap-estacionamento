@@ -120,16 +120,32 @@
             <form action="">
               <div class="row">
                 <div class="col-lg-4 form-group">
-                  <label for="">Nome</label>
-                  <input type="text" class="form-control">
+                  <label for="">Nome Completo <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" placeholder="João Francisco" required>
                 </div>
                 <div class="col-lg-4 form-group">
-                  <label for="">Nome</label>
-                  <input type="text" class="form-control">
+                  <label for="">E-mail <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" placeholder="exmplo@gmail.com" required>
                 </div>
                 <div class="col-lg-4 form-group">
-                  <label for="">Nome</label>
-                  <input type="text" class="form-control">
+                  <label for="">Palavra-passe <span class="text-danger">*</span></label>
+                  <input type="password" class="form-control" placeholder="password" required>
+                </div>
+                <div class="col-lg-4 form-group">
+                  <label for="">Bilhete de Identidade</label>
+                  <input type="text" maxlength="15" class="form-control" placeholder="000000000000LA0">
+                </div>
+                <div class="col-lg-4 form-group">
+                  <label for="">Nº de Telefone <span class="text-danger">*</span></label>
+                  <input type="tel" maxlength="9" class="form-control" placeholder="922XXXXXX" required>
+                </div>
+                <div class="col-lg-4 form-group">
+                  <label for="">Idade <span class="text-danger">*</span></label>
+                  <input type="number" maxlength="3" class="form-control" placeholder="29" required>
+                </div>
+                <div class="col-lg-12 form-group">
+                  <label for="">Idade <span class="text-danger">*</span></label>
+                  <input type="number" maxlength="3" class="form-control" placeholder="29" required>
                 </div>
               </div>
             </form>
