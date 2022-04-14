@@ -44,26 +44,44 @@
                       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         <!-- Tabela de Entrada e Saída -->
                         <div class="rounded p-4 card">
-                          <table class="table mt-4">
+                        <table class="table mt-4">
                             <thead>
                               <tr>
-                                <th>Item 0</th>
-                                <th>Item 1</th>
-                                <th>Item 2</th>
-                                <th>Item 3</th>
-                                <th>Item 4</th>
-                                <th>Item 5</th>
+                                <th>#</th>
+                                <th>Carro</th>
+                                <th>Data de Entrada</th>
+                                <th>Data de Saída</th>
+                                <th>Data de registro</th>
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td>Item 0</td>
-                                <td>Item 1</td>
-                                <td>Item 2</td>
-                                <td>Item 3</td>
-                                <td>Item 4</td>
-                                <td>Item 5</td>
-                              </tr>
+                              <?php 
+
+                                $parametros = [":id" => $_SESSION['id']];
+                                $buscandoEntradaSaida = new Model();
+                                $buscando = $buscandoEntradaSaida->EXE_QUERY("SELECT * FROM tb_entrada_saida INNER JOIN tb_carro_cliente ON tb_entrada_saida.id_carro=tb_carro_cliente.id_carro WHERE tb_carro_cliente.id_cliente=:id", $parametros);
+
+                                if(count($buscando)):
+                                  foreach($buscando as $mostrar):?>
+                                    <tr>
+                                      <td>Item 0</td>
+                                      <td>
+                                        Vaga Solicitada
+                                      </td>
+                                      <td>Item 2</td>
+                                      <td>Item 3</td>
+                                      <td>Item 4</td>
+                                    </tr>
+                                    <?php 
+                                    endforeach;
+                                  else:    
+                                ?>
+                                    <tr>
+                                      <td colspan="12" class="bg-warning text-center text-white">Não existe nenhum dado</td>
+                                    </tr>
+                                <?php 
+                                  endif; 
+                                ?>
                             </tbody>
                           </table>
                         </div>
@@ -74,66 +92,92 @@
                           <table class="table mt-4">
                             <thead>
                               <tr>
-                                <th>Item 0</th>
-                                <th>Item 1</th>
-                                <th>Item 2</th>
-                                <th>Item 3</th>
-                                <th>Item 4</th>
-                                <th>Item 5</th>
+                                <th>#</th>
+                                <th>Espaço</th>
+                                <th>Preço</th>
+                                <th>Descrição</th>
+                                <th>Acção</th>
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td>Item 0</td>
-                                <td>
-                                  <a href="cadastro.php?id=vaga">Vaga Selecionada</a>
-                                </td>
-                                <td>Item 2</td>
-                                <td>Item 3</td>
-                                <td>Item 4</td>
-                                <td>Item 5</td>
-                              </tr>
+                              <?php
+                                $vagasDisponivel = new Model();
+                                $buscandoDisponivel = $vagasDisponivel->EXE_QUERY("SELECT * FROM tb_vaga");
+                                if(count($buscandoDisponivel)):
+                                  foreach($buscandoDisponivel as $mostrar): ?>
+                                    <tr>
+                                      <td><?= $mostrar['id_vaga'] ?></td>
+                                      <td><?= $mostrar['espaco_vago'] ?></td>
+                                      <td><?= $mostrar['preco'] ?></td>
+                                      <td><?= $mostrar['descricao'] ?></td>
+                                      <td>
+                                        <a href="cadastro.php?id=<?= $mostrar['id_vaga'] ?>" class="btn btn-primary btn-sm">
+                                          <i class="fas fa-eye"></i>
+                                        </a>
+                                      </td>
+                                    </tr>
+                                <?php
+                                    endforeach;
+                                  else:
+                                ?>
+                                    <tr>
+                                      <td></td>
+                                    </tr>
+                                <?php
+                                  endif;
+                                ?>
                             </tbody>
                           </table>
                         </div>
                       </div>
+
                       <div class="tab-pane fade" id="nav-vagasSolicitadas" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <div class="rounded p-4 card">
                           <table class="table mt-4">
                             <thead>
                               <tr>
-                                <th>Item 0</th>
-                                <th>Item 1</th>
-                                <th>Item 2</th>
-                                <th>Item 3</th>
-                                <th>Item 4</th>
-                                <th>Item 5</th>
+                                <th>#</th>
+                                <th>Mensagem</th>
+                                <th>Estado da solicitação</th>
+                                <th>Data de registro</th>
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td>Item 0</td>
-                                <td>
-                                  Vaga Solicitada
-                                </td>
-                                <td>Item 2</td>
-                                <td>Item 3</td>
-                                <td>Item 4</td>
-                                <td>Item 5</td>
-                              </tr>
+                              <?php
+                                $parametros = [":id" => $_SESSION['id']];
+                                $minhasSolicitacoes = new Model();
+                                $buscandoSolicitacoes = $minhasSolicitacoes->EXE_QUERY("SELECT * FROM tb_solicitacao_vaga WHERE id_cliente=:id", $parametros);
+                                
+                                if(count($buscandoSolicitacoes)):
+                                  foreach($buscandoSolicitacoes as $mostrar): ?>
+                                    <tr>
+                                      <td> Vaga Solicitada</td>
+                                      <td>Item 2</td>
+                                      <td>Item 3</td>
+                                      <td>Item 4</td>
+                                    </tr>
+                                  <?php 
+                                    endforeach;
+                                  else:?>
+                                    <tr>
+                                      <td colspan="12" class="text-white bg-warning text-center">Não existe nenhuma informação </td>
+                                    </tr>
+                                <?php
+                                endif;?>
                             </tbody>
                           </table>
                         </div>
                       </div>
+
+
                       <div class="tab-pane fade" id="nav-funcionamento" role="tabpanel" aria-labelledby="nav-contact-tab">
                         <div class="card p-4">
                           <h6>Modo de funcionamento do sistema</h6>
                         </div>
                       </div>
+
+                      
                     </div>
-
-                  
-
                 </div>
               </div>
             </div>

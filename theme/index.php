@@ -125,7 +125,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
               <div class="row">
                 <div class="col-lg-8 form-group">
                   <label for="">Fotografia</label>

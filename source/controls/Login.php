@@ -26,7 +26,7 @@
       $loginUser = $searchLogin->EXE_QUERY("SELECT * FROM tb_cliente WHERE email_cliente=:email AND senha_cliente=:senha", $parametros);
       if($loginUser):
         foreach($loginUser as $mostrar): 
-          $_SESSION['id_admin'] = $mostrar['id_cliente'];
+          $_SESSION['id']       = $mostrar['id_cliente'];
           $_SESSION['nome']     = $mostrar['nome_cliente'];
           $_SESSION['email']    = $mostrar['email_cliente']; 
           $_SESSION['senha']    = $mostrar['senha_cliente'];
