@@ -121,31 +121,39 @@
               <div class="row">
                 <div class="col-lg-4 form-group">
                   <label for="">Nome Completo <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" placeholder="João Francisco" required>
+                  <input type="text" name="nome" class="form-control" placeholder="João Francisco" required>
                 </div>
                 <div class="col-lg-4 form-group">
                   <label for="">E-mail <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" placeholder="exmplo@gmail.com" required>
+                  <input type="text" name="email" class="form-control" placeholder="exmplo@gmail.com" required>
                 </div>
                 <div class="col-lg-4 form-group">
                   <label for="">Palavra-passe <span class="text-danger">*</span></label>
-                  <input type="password" class="form-control" placeholder="password" required>
+                  <input type="password" name="senha" class="form-control" placeholder="password" required>
                 </div>
                 <div class="col-lg-4 form-group">
                   <label for="">Bilhete de Identidade</label>
-                  <input type="text" maxlength="15" class="form-control" placeholder="000000000000LA0">
+                  <input type="text" name="bi" maxlength="15" class="form-control" placeholder="000000000000LA0">
                 </div>
                 <div class="col-lg-4 form-group">
                   <label for="">Nº de Telefone <span class="text-danger">*</span></label>
-                  <input type="tel" maxlength="9" class="form-control" placeholder="922XXXXXX" required>
+                  <input type="tel" name="telefone" maxlength="9" class="form-control" placeholder="922XXXXXX" required>
                 </div>
                 <div class="col-lg-4 form-group">
                   <label for="">Idade <span class="text-danger">*</span></label>
-                  <input type="number" maxlength="3" class="form-control" placeholder="29" required>
+                  <input type="number" name="idade" maxlength="3" class="form-control" placeholder="29" required>
                 </div>
                 <div class="col-lg-12 form-group">
-                  <label for="">Idade <span class="text-danger">*</span></label>
-                  <input type="number" maxlength="3" class="form-control" placeholder="29" required>
+                  <label for="">Genero <span class="text-danger">*</span></label>
+                  <select name="genero" class="form-control">
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                  </select>
+                </div>
+                <div class="col-lg-4">
+                  <button class="btn btn-primary form-control" name="criar_conta">
+                    Criar conta
+                  </button>
                 </div>
               </div>
             </form>
