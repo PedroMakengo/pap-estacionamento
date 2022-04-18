@@ -26,7 +26,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <h1 class="text-white mt-3 title-logo">Avante Carros</h1>
+            <h1 class="text-white mt-3 title-logo">Ango-Parque</h1>
           </div>
           <div class="col-lg-6 text-right">
             <nav class="menu">

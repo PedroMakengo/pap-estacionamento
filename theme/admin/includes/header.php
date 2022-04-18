@@ -50,7 +50,7 @@
       <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo dash-aside-bg">
           <a href="#" class="text-white">
-           AVANTE CARROS
+           Ango-Parque
           </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1 bg-user-estacionamento">
