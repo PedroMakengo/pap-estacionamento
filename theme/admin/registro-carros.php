@@ -27,7 +27,8 @@
                 >
                   <div class="rounded p-4 borda-top">
                     <h1 class="title pb-3">Registo de carros</h1>
-                    <table class="table">
+                    <hr>
+                    <table class="table" id="dataTableEstacionamento">
                       <thead>
                         <tr>
                           <th>Id</th>

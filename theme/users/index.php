@@ -89,7 +89,7 @@
                       </div>
                       <div class="tab-pane fade" id="nav-vagasDisponiveis" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <div class="rounded p-4 card">
-                          <table class="table mt-4">
+                          <table class="table mt-4" id="dataTableGeral">
                             <thead>
                               <tr>
                                 <th>#</th>
@@ -133,7 +133,7 @@
 
                       <div class="tab-pane fade" id="nav-vagasSolicitadas" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <div class="rounded p-4 card">
-                          <table class="table mt-4">
+                          <table class="table mt-4" id="dataTableEstacionamento">
                             <thead>
                               <tr>
                                 <th>#</th>

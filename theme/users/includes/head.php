@@ -70,6 +70,7 @@
     <link rel="stylesheet" href="../assets/styles/theme/aos.css" />
 
     <link rel="stylesheet" href="../assets/styles/dashboard.css" />
+    <link rel="stylesheet" href="../assets/styles/dataTables.bootstrap4.css">
 
     <style>
       .navbar-sidebar a {

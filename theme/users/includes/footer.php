@@ -9,8 +9,16 @@
 
 <script src="../assets/scripts/theme/jquery-1.12.4.min.js"></script>
 <script src="../assets/scripts/theme/aos.js"></script>
+
+<script src="../assets/scripts/data-table.js"></script>
+<script src="../assets/scripts/jquery.dataTables.js"></script>
+<script src="../assets/scripts/dataTables.bootstrap4.js"></script>
+
 <script>
   $(function () {
     AOS.init();
+    $('#dataTableEstacionamento').dataTable();
+    $('#dataTableGeral').dataTable();
+    // dataTableGeral
   });
 </script>
