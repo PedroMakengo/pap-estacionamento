@@ -39,7 +39,8 @@
                 >
                 <div class="rounded p-4 card">
                     <h1 class="title">Listagem de carro</h1>
-                    <table class="table mt-4">
+                    <hr>
+                    <table class="table mt-4" id="dataTableGeral">
                       <thead>
                         <tr>
                           <th>Item 0</th>
