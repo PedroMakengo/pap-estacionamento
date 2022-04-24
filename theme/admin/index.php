@@ -142,7 +142,7 @@
                             ?>
                             <tr>
                               <td><?= $mostrarCliente['id_cliente'] ?></td>
-                              <td><a href="perfil-cliente.php?id=<?= $mostrarCliente['id_cliente'] ?>"><?= $mostrarCliente['num_bi'] ?></a></td>
+                              <td><a href="perfil-usuario.php?id=<?= $mostrarCliente['id_cliente'] ?>"><?= $mostrarCliente['num_bi'] ?></a></td>
                             </tr>
                             <?php 
                                 endforeach;

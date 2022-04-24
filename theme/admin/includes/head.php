@@ -103,5 +103,10 @@
       .banner-dashboard {
         margin-top: -120px
       }
+
+      .btn-primary {
+        background: #212121;
+        border: 0;
+      }
     </style>
   </head>
