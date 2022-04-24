@@ -50,7 +50,7 @@
       <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo dash-aside-bg">
           <a href="#" class="text-white">
-           Ango-Parque
+           DASHBOARD
           </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1 bg-user-estacionamento">
@@ -65,7 +65,7 @@
                 >
               </li>
               <li class="<?= $_GET['id'] == 'carros' ? 'active' : '' ?>">
-                <a href="registro-carros.php?id=carros">
+                <a href="registro.php?id=registro">
                   <i class="fas fa-car"></i>Registo de Carros</a
                 >
               </li>
@@ -87,7 +87,7 @@
             </ul>
           </nav>
           <div class="stans-office">
-            <h2>Stans Office</h2>
+            <h2>Ango-Parque</h2>
           </div>
         </div>
       </aside>

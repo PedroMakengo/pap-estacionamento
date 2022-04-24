@@ -106,7 +106,7 @@
                   data-aos-duration="2300"
                 >
                   <div class="rounded p-4 borda-top">
-                    <h1 class="title">Dados estátisticos</h1>
+                    <h1 class="title">Gráfico Mensal de Clientes</h1>
                     <hr />
                     <div class="charts mt-2">
                       <canvas
