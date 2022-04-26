@@ -21,9 +21,8 @@
 <script>
   $(function () {
     AOS.init();
-    $('#dataTableEstacionamento').dataTable();
-    $('#dataTableCarroEstaciona').dataTable();
-    $('#dataTableCarroSaida').dataTable();
+    $('#dataGeral').dataTable();
+    
     // Trabalhar nos gráficos 
     var lineChart = document.getElementById("mycompra-chart").getContext("2d");
     var myLineChart = new Chart(lineChart, {

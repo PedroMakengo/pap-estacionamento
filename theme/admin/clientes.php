@@ -29,7 +29,7 @@
                     <h1 class="title pb-3">Tabela de Clientes</h1>
                     <hr>
                     <div class="table-responsive">
-                      <table class="table" id="dataTableEstacionamento" style="width: 1120px">
+                      <table class="table" id="dataGeral" style="width: 1120px">
                         <thead>
                           <tr>
                           <th>#</th>
@@ -56,10 +56,10 @@
                                 <td><?= $mostrarCliente['genero'] ?></td>
                                 <td><?= $mostrarCliente['data_registro_cliente'] ?></td>
                                 <td>
-                                  <a class="btn btn-primary btn-small" href="perfil-usuario.php?id=<?= $mostrarCliente['id_cliente'] ?>">
+                                  <a class="btn btn-primary btn-sm" href="perfil-usuario.php?id=<?= $mostrarCliente['id_cliente'] ?>">
                                     <i class="fas fa-eye"></i>
                                   </a>
-                                  <a href="clientes.php?action=delete&id=<?= $mostrarCliente['id_cliente']?>" class="btn btn-danger btn-small">
+                                  <a href="clientes.php?action=delete&id=<?= $mostrarCliente['id_cliente']?>" class="btn btn-danger btn-sm">
                                     <i class="fas fa-trash"></i>
                                   </a>
                                 </td>

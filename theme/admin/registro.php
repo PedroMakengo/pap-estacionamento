@@ -27,7 +27,7 @@
                 >
 
                   <div class="bg-white p-3">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                      <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                           <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Registro de vagas</a>
                         </li>
@@ -63,7 +63,7 @@
 
                           <div class="p-2 mt-2">
                             <div class="table-responsive">
-                              <table class="table" id="dataTableEstacionamento">
+                              <table class="table datableGeral" >
                                 <thead>
                                   <tr>
                                     <th>#</th>
@@ -123,7 +123,7 @@
                           <div class="p-2 mt-2">
                             <!-- End Tabela Estacionar -->
                             <div class="table-responsive">
-                              <table class="table" id="dataTableCarroEstaciona" style="width: 1500px">
+                              <table class="table datableGeral"  style="width: 1500px">
                                 <thead>
                                   <tr>
                                     <th>#</th>
@@ -152,16 +152,43 @@
                                         <td><?= $mostrar['matricula'] ?></td>
                                         <td><?= $mostrar['data_entrada'] ?></td>
                                         <td class="text-center">
-                                          <a href="#" class="btn btn-sm btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                          </a>
-                                          <a href="#" class="btn btn-sm btn-danger">
-                                            <i class="fas fa-trash"></i>
-                                          </a>
+                                         <form method="POST">
+                                            <button type="submit" name="atualizar_saida" class="btn btn-sm btn-primary">
+                                              <i class="fas fa-check"></i>
+                                            </button>
+                                            <a href="#" class="btn btn-sm btn-danger">
+                                              <i class="fas fa-trash"></i>
+                                            </a>
+                                            <?php 
+                                              if(isset($_POST['atualizar_saida'])):
+
+                                                $parametros = [
+                                                  ":id" => $mostrar['id_estacionar'],
+                                                  ":estado" => 1
+                                                ];
+
+                                                $atualizar = new Model();
+                                                $atualizar->EXE_NON_QUERY("UPDATE tb_estacionar_carro SET
+                                                estado=:estado,
+                                                data_saida=now() 
+                                                WHERE
+                                                id_estacionar=:id ", $parametros);
+                                                if($atualizar):
+                                                  echo "<script>location.href='registro.php?id=registro'</script>";
+                                                endif;
+                                              endif;
+                                            ?>
+                                         </form>
+                                         
                                         </td>
                                       </tr>
                                     <?php
                                       endforeach;
+                                    else:?>
+                                        <tr>
+                                          <td colspan="12" class="text-center bg-warning text-white">Não existe nenhuma entrada de carro</td>
+                                        </tr>
+                                    <?php 
                                     endif;
                                     ?>
                                 </tbody>
@@ -215,7 +242,7 @@
                                           <td><?= $mostrar['modelo'] ?></td>
                                           <td><?= $mostrar['cor'] ?></td>
                                           <td><?= $mostrar['matricula'] ?></td>
-                                          <td><?= $mostrar['data_entrada'] ?></td>
+                                          <td><?= $mostrar['data_saida'] ?></td>
                                           <td class="text-center">
                                             <a href="#" class="btn btn-sm btn-primary">
                                               <i class="fas fa-eye"></i>
@@ -258,7 +285,7 @@
                             <div class="p-2 mt-2">
                               <!-- End Tabela Estacionar -->
                               <div class="table-responsive">
-                                <table class="table" id="dataTableCarroSaida" style="width: 1500px">
+                                <table class="table" id="tableSolicitacao" style="width: 1500px">
                                   <thead>
                                     <tr>
                                       <th>#</th>
@@ -325,7 +352,7 @@
                             <div class="p-2">
                               <!-- Entrada de Carro -->
                               <div class="table-responsive">
-                                <table class="table" id="dataTableEstacionamento">
+                                <table class="table" id="dataTableCarroRegistrado">
                                   <thead>
                                     <tr>
                                       <th>Id</th>
