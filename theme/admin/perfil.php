@@ -31,6 +31,7 @@
                     $nome = $mostrar['nome'];
                     $fotoRetornado = $mostrar['foto'];
                     $email = $mostrar['email'];
+                    $senhaRetornado = $mostrar['senha'];
                   endforeach;
                 endif;
                 ?>
@@ -105,7 +106,7 @@
 
                     $nome = $_POST['nome'];
                     $email = $_POST['email'];
-                    $senha = empty($_POST['senha']) === '' ? $senha : md5(md5($_POST['senha']));
+                    $senha = $_POST['senha'] === '' ? $senhaRetornado : md5(md5($_POST['senha']));
 
                     $target        = "assets/images/profile/" . basename($_FILES['foto']['name']);
                     $foto          = $_FILES['foto']['name'] === '' ? $fotoRetornado : $_FILES['foto']['name'];
@@ -119,7 +120,7 @@
                     ];
 
                     $atualizarMeuPerfil = new Model();
-                    $atualizarMeuPerfil->EXE_NON_QUERY("UPDATE FROM tb_cliente SET
+                    $atualizarMeuPerfil->EXE_NON_QUERY("UPDATE tb_admin SET
                       nome=:nome,
                       email=:email,
                       senha=:senha,

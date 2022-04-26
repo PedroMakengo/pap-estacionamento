@@ -6,9 +6,9 @@
 
     switch ($_GET['id']):
       case 'vaga':
-         // Instanciando
-          $usuario = new Model();
-          //   $sql = $usuario->EXE_QUERY("SELECT * FROM tb_candidatura_vaga INNER JOIN tb_aluno ON tb_candidatura_vaga.id_aluno=tb_aluno.id_aluno");
+        // Instanciando
+        //   $usuario = new Model();
+        //   $sql = $usuario->EXE_QUERY("SELECT * FROM tb_candidatura_vaga INNER JOIN tb_aluno ON tb_candidatura_vaga.id_aluno=tb_aluno.id_aluno");
 
           $html = "
                 <html>

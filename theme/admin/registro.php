@@ -67,11 +67,37 @@
                                 <thead>
                                   <tr>
                                     <th>#</th>
-                                    <th>Nome</th>
-                                    <th>Text</th>
-                                    <th>Obs</th>
+                                    <th>Espaço</th>
+                                    <th>Preço</th>
+                                    <th>Descrição</th>
+                                    <th class="text-center">Acções</th>
                                   </tr>
                                 </thead>
+                                <tbody>
+                                    <?php
+                                      $registroVagas = new Model();
+                                      $buscandoVagas = $registroVagas->EXE_QUERY("SELECT * FROM tb_vaga");
+                                      if($buscandoVagas):
+                                        foreach($buscandoVagas as $mostrar):?>
+                                        <tr>
+                                          <td><?= $mostrar['id_vaga'] ?></td>
+                                          <td><?= $mostrar['espaco_vago'] ?></td>
+                                          <td><?= $mostrar['preco'] ?></td>
+                                          <td><?= $mostrar['descricao'] ?></td>
+                                          <td class="text-center">
+                                            <a href="#" class="btn btn-primary">
+                                              <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-danger">
+                                              <i class="fas fa-trash"></i>
+                                            </a>
+                                          </td>
+                                        </tr>
+                                    <?php
+                                        endforeach;
+                                      endif;
+                                    ?>
+                                </tbody>
                               </table>
                             </div>
                           </div>
@@ -213,7 +239,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form action="">
+                <form method="POST">
                   <div class="row">
                     <div class="col-lg-6 form-group">
                       <label for="espaco">Espaço  <span class="text-danger">*</span></label>
@@ -228,10 +254,36 @@
                       <textarea name="descricao" placeholder="Deixe uma informação" id="descricao" class="form-control"></textarea>
                     </div>
                     <div class="form-group col-lg-4">
-                      <input type="submit" value="Adicionar" name="adicionar" class="btn btn-primary rounded form-control">
+                      <input type="submit" value="Adicionar" name="adicionar_vaga" class="btn btn-primary rounded form-control">
                     </div>
                   </div>
                 </form>
+
+                <?php
+
+                  if(isset($_POST['adicionar_vaga'])):
+
+                    $espaco = $_POST['espaco'];
+                    $preco  = $_POST['preco'];
+                    $descricao = $_POST['descricao'];
+
+                    $parametros = [
+                      ":id"         => $_SESSION['id_admin'],
+                      ":espaco"     => $espaco,
+                      ":preco"      => $preco,
+                      ":descricao"  => $descricao
+                    ];
+
+                    $inserirVaga = new Model();
+                    $inserirVaga->EXE_NON_QUERY("INSERT INTO tb_vaga 
+                    (id_admin, espaco_vago, preco, descricao) 
+                    VALUES 
+                    (:id, :espaco, :preco, :descricao) ", $parametros);
+                    if($inserirVaga):
+                      echo "<script>location.href='registro.php?id=registro'</script>";
+                    endif;
+                  endif;
+                ?>
               </div>
             </div>
           </div>
