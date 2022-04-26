@@ -22,7 +22,7 @@
   $(function () {
     AOS.init();
     $('#dataGeral').dataTable();
-    
+
     // Trabalhar nos gráficos 
     var lineChart = document.getElementById("mycompra-chart").getContext("2d");
     var myLineChart = new Chart(lineChart, {
@@ -45,14 +45,14 @@
         datasets: [
         {
             label: "Clientes registadas",
-            borderColor: "#1f6feb",
-            pointBorderColor: "#1f6feb",
-            pointBackgroundColor: "#1f6feb",
+            borderColor: "#212121",
+            pointBorderColor: "#212121",
+            pointBackgroundColor: "#212121",
             pointBorderWidth: 2,
             pointHoverRadius: 4,
             pointHoverBorderWidth: 1,
             pointRadius: 4,
-            backgroundColor: "transparent",
+            backgroundColor: "#212121",
             fill: true,
             borderWidth: 2,
             data: <?= json_encode($clientesMensal) ?>,
