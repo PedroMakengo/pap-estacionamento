@@ -32,10 +32,10 @@
                           <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Registro de vagas</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Estacionar</a>
+                          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Entrada de Carro</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Entrada & Saída</a>
+                          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Saída de Carro</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" id="contact-tab" data-toggle="tab" href="#solicitacao" role="tab" aria-controls="contact" aria-selected="false">Solicitação de vagas</a>
@@ -54,7 +54,7 @@
                                   <button class="btn btn-primary" data-toggle="modal" data-target=".adicionar_vaga">
                                     <i class="fas fa-plus"></i> Adicionar vaga
                                   </button>
-                                  <a href="relatorio.php?id=vaga" class="btn btn-primary" data-toggle="modal" data-target=".adicionar_vaga">
+                                  <a href="relatorio.php?id=vaga" class="btn btn-primary">
                                     <i class="fas fa-file"></i> Visualizar relatório
                                   </a>
                               </div>
@@ -85,10 +85,10 @@
                                           <td><?= $mostrar['preco'] ?></td>
                                           <td><?= $mostrar['descricao'] ?></td>
                                           <td class="text-center">
-                                            <a href="#" class="btn btn-primary">
+                                            <a href="#" class="btn btn-primary btn-sm">
                                               <i class="fas fa-eye"></i>
                                             </a>
-                                            <a href="#" class="btn btn-danger">
+                                            <a href="#" class="btn btn-danger btn-sm">
                                               <i class="fas fa-trash"></i>
                                             </a>
                                           </td>
@@ -105,7 +105,7 @@
                         </div>
                         <!-- Registro de vagas -->
 
-                        <!-- Estacionar carro -->
+                        <!-- Entrada carro -->
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                           <div class="p-2">
                             <div class="row">
@@ -113,7 +113,7 @@
                                   <button class="btn btn-primary" data-toggle="modal" data-target=".adicionar_carro_estacionar">
                                     <i class="fas fa-plus"></i> Registrar carro
                                   </button>
-                                  <a href="relatorio.php?id=particular" class="btn btn-primary" data-toggle="modal" data-target=".adicionar_vaga">
+                                  <a href="relatorio.php?id=entrada" class="btn btn-primary">
                                     <i class="fas fa-file"></i> Visualizar relatório
                                   </a>
                               </div>
@@ -121,105 +121,259 @@
                           </div>
 
                           <div class="p-2 mt-2">
-                          <!-- End Tabela Estacionar -->
+                            <!-- End Tabela Estacionar -->
                             <div class="table-responsive">
-                              <table class="table" id="dataTableEstacionamento">
+                              <table class="table" id="dataTableCarroEstaciona" style="width: 1500px">
                                 <thead>
                                   <tr>
                                     <th>#</th>
                                     <th>Nome</th>
-                                    <th>Text</th>
-                                    <th>Obs</th>
+                                    <th>B.I</th>
+                                    <th>Modelo do Carro</th>
+                                    <th>Cor</th>
+                                    <th>Matricula</th>
+                                    <th>Data de Entrada</th>
+                                    <th class="text-center">Acções</th>
                                   </tr>
                                 </thead>
+                                <tbody>
+                                    <?php
+                                      $buscandoEntradaCarro = new Model();
+                                      $busca = $buscandoEntradaCarro->EXE_QUERY("SELECT * FROM tb_estacionar_carro WHERE estado=0");
+                                      if($busca):
+                                        foreach ($busca as $mostrar):
+                                    ?>
+                                      <tr>
+                                        <td><?= $mostrar['id_estacionar'] ?></td>
+                                        <td><?= $mostrar['nome_cliente'] ?></td>
+                                        <td><?= $mostrar['bi'] ?></td>
+                                        <td><?= $mostrar['modelo'] ?></td>
+                                        <td><?= $mostrar['cor'] ?></td>
+                                        <td><?= $mostrar['matricula'] ?></td>
+                                        <td><?= $mostrar['data_entrada'] ?></td>
+                                        <td class="text-center">
+                                          <a href="#" class="btn btn-sm btn-primary">
+                                            <i class="fas fa-eye"></i>
+                                          </a>
+                                          <a href="#" class="btn btn-sm btn-danger">
+                                            <i class="fas fa-trash"></i>
+                                          </a>
+                                        </td>
+                                      </tr>
+                                    <?php
+                                      endforeach;
+                                    endif;
+                                    ?>
+                                </tbody>
                               </table>
                             </div>
                           </div>
                           <!-- End Tabela Estacionar -->
 
                         </div>
-                        <!-- Estacionar carro -->
+                        <!-- Entrada carro -->
 
-
-
-
+                        <!-- Saída de Carro -->
                         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                             <div class="p-2">
                               <div class="row">
                                 <div class="col-lg-6">
-                                    <a href="relatorio.php?id=entrada" class="btn btn-primary" data-toggle="modal" data-target=".adicionar_vaga">
+                                    <a href="relatorio.php?id=saida" class="btn btn-primary">
                                       <i class="fas fa-file"></i> Visualizar relatório
                                     </a>
                                 </div>
                               </div>
                             </div>
+                            <div class="p-2 mt-2">
+                              <!-- End Tabela Estacionar -->
+                              <div class="table-responsive">
+                                <table class="table" id="dataTableCarroSaida" style="width: 1500px">
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>Nome</th>
+                                      <th>B.I</th>
+                                      <th>Modelo do Carro</th>
+                                      <th>Cor</th>
+                                      <th>Matricula</th>
+                                      <th>Data de Saída</th>
+                                      <th class="text-center">Acções</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                      <?php
+                                        $buscandoEntradaCarro = new Model();
+                                        $busca = $buscandoEntradaCarro->EXE_QUERY("SELECT * FROM tb_estacionar_carro
+                                        WHERE estado=1");
+                                        if($busca):
+                                          foreach ($busca as $mostrar):
+                                      ?>
+                                        <tr>
+                                          <td><?= $mostrar['id_estacionar'] ?></td>
+                                          <td><?= $mostrar['nome_cliente'] ?></td>
+                                          <td><?= $mostrar['bi'] ?></td>
+                                          <td><?= $mostrar['modelo'] ?></td>
+                                          <td><?= $mostrar['cor'] ?></td>
+                                          <td><?= $mostrar['matricula'] ?></td>
+                                          <td><?= $mostrar['data_entrada'] ?></td>
+                                          <td class="text-center">
+                                            <a href="#" class="btn btn-sm btn-primary">
+                                              <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-danger">
+                                              <i class="fas fa-trash"></i>
+                                            </a>
+                                          </td>
+                                        </tr>
+                                      <?php
+                                        endforeach;
+                                      else:
+                                        ?>
+                                        <tr>
+                                          <td colspan="12" class="text-center bg-warning text-white">Não existe nenhuma saída</td>
+                                        </tr>
+                                        <?php
+                                      endif;
+                                      ?>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <!-- End Tabela Estacionar -->
+                            </div>
                         </div>
+                        <!-- Saída de Carro -->
 
-
+                        <!-- Solicitação de Vagas -->
                         <div class="tab-pane fade" id="solicitacao" role="tabpanel" aria-labelledby="contact-tab">
                             <div class="p-2">
                               <div class="row">
                                 <div class="col-lg-6">
-                                    <a href="relatorio.php?id=solicitacoes" class="btn btn-primary" data-toggle="modal" data-target=".adicionar_vaga">
+                                    <a href="relatorio.php?id=solicitacoes" class="btn btn-primary">
                                       <i class="fas fa-file"></i> Visualizar relatório
                                     </a>
                                 </div>
                               </div>
                             </div>
+
+                            <div class="p-2 mt-2">
+                              <!-- End Tabela Estacionar -->
+                              <div class="table-responsive">
+                                <table class="table" id="dataTableCarroSaida" style="width: 1500px">
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>Nome do Cliente</th>
+                                      <th>Vaga</th>
+                                      <th>Estado Solicitação</th>
+                                      <th>Data de Solicitação</th>
+                                      <th class="text-center">Acções</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                      <?php
+                                        $buscandoEntradaCarro = new Model();
+                                        $busca = $buscandoEntradaCarro->EXE_QUERY("SELECT * FROM tb_solicitacao_vaga
+                                        INNER JOIN tb_vaga ON tb_solicitacao_vaga.id_vaga=tb_vaga.id_vaga
+                                        INNER JOIN tb_cliente ON tb_solicitacao_vaga.id_cliente=tb_cliente.id_cliente
+                                        ");
+                                        if($busca):
+                                          foreach ($busca as $mostrar):
+                                      ?>
+                                        <tr>
+                                          <td><?= $mostrar['id_solicitacao_vaga'] ?></td>
+                                          <td><?= $mostrar['nome_cliente'] ?></td>
+                                          <td><?= $mostrar['espaco_vago'] ?></td>
+                                          <td><?= $mostrar['estado_solicitacao'] ?></td>
+                                          <td><?= $mostrar['data_solicitacao'] ?></td>
+                                          <td class="text-center">
+                                            <a href="#" class="btn btn-sm btn-primary">
+                                              <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-danger">
+                                              <i class="fas fa-trash"></i>
+                                            </a>
+                                          </td>
+                                        </tr>
+                                      <?php
+                                        endforeach;
+                                      else:
+                                        ?>
+                                        <tr>
+                                          <td colspan="12" class="text-center bg-warning text-white">Não existe nenhuma saída</td>
+                                        </tr>
+                                        <?php
+                                      endif;
+                                      ?>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
                         </div>
+                        <!-- Solicitação de Vagas -->
+
+                        <!-- Carros registrados -->
                         <div class="tab-pane fade" id="carros" role="tabpanel" aria-labelledby="contact-tab">
                             <div class="p-2">
                               <div class="row">
                                 <div class="col-lg-6">
-                                    <a href="relatorio.php?id=carros" class="btn btn-primary" data-toggle="modal" data-target=".adicionar_vaga">
+                                    <a href="relatorio.php?id=carros" class="btn btn-primary">
                                       <i class="fas fa-file"></i> Visualizar relatório
                                     </a>
                                 </div>
                               </div>
                             </div>
-                          <div class="table-responsive">
-                            <table class="table" id="dataTableEstacionamento">
-                              <thead>
-                                <tr>
-                                  <th>Id</th>
-                                  <th>Carro</th>
-                                  <th>Marca</th>
-                                  <th>Entrada</th>
-                                  <th>Saída</th>
-                                  <th>Estado</th>
-                                  <th class="text-center">Ações</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <?php 
-                                  $registroCarro = new Model();
-                                  $buscandoCarro = $registroCarro->EXE_QUERY("SELECT * FROM tb_entrada_saida 
-                                  INNER JOIN tb_carro_cliente ON tb_entrada_saida.id_carro=tb_carro_cliente.id_carro");
-                                  if(count($buscandoCarro)):
-                                    foreach($buscandoCarro as $carro):?>
-                                      <tr>
-                                        <td><?= $carro['id_entrada'] ?></td>
-                                        <td><?= $carro['modelo'] ?></td>
-                                        <td><?= $carro['marca'] ?></td>
-                                        <td><?= $carro['hora_entrada'] ?></td>
-                                        <td><?= $carro['hora_saida'] ?></td>
-                                        <td><?= $carro['estado'] ?></td>
-                                        <td class="text-center"s>Teste 01</td>
-                                      </tr>
-                                  <?php 
-                                    endforeach;
-                                  else:?>
+                            <div class="p-2">
+                              <!-- Entrada de Carro -->
+                              <div class="table-responsive">
+                                <table class="table" id="dataTableEstacionamento">
+                                  <thead>
                                     <tr>
-                                      <td colspan="12" class="bg-warning text-white text-center">
-                                        Não existe nenhum registro de carro
-                                      </td>
+                                      <th>Id</th>
+                                      <th>Dono do Carro</th>
+                                      <th>Marca</th>
+                                      <th>Modelo</th>
+                                      <th>Matricula</th>
+                                      <th>Data Reistro</th>
+                                      <th class="text-center">Ações</th>
                                     </tr>
-                                  <?php 
-                                  endif;?>
-                              </tbody>
-                            </table>
-                          </div>
+                                  </thead>
+                                  <tbody>
+                                    <?php 
+                                      $registroCarro = new Model();
+                                      $buscandoCarro = $registroCarro->EXE_QUERY("SELECT * FROM tb_carro_cliente
+                                      INNER JOIN tb_cliente ON tb_carro_cliente.id_cliente=tb_cliente.id_cliente");
+                                      if(count($buscandoCarro)):
+                                        foreach($buscandoCarro as $carro):?>
+                                          <tr>
+                                            <td><?= $carro['id_carro'] ?></td>
+                                            <td><?= $carro['nome_cliente'] ?></td>
+                                            <td><?= $carro['marca'] ?></td>
+                                            <td><?= $carro['modelo'] ?></td>
+                                            <td><?= $carro['matricula'] ?></td>
+                                            <td><?= $carro['data_registro_carro'] ?></td>
+                                            <td class="text-center">
+                                              <a href="" class="btn btn-sm btn-danger">
+                                                <i class="fas fa-trash"></i>
+                                              </a>
+                                            </td>
+                                          </tr>
+                                      <?php 
+                                        endforeach;
+                                      else:?>
+                                        <tr>
+                                          <td colspan="12" class="bg-warning text-white text-center">
+                                            Não existe nenhum registro de carro
+                                          </td>
+                                        </tr>
+                                      <?php 
+                                      endif;?>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <!-- Entrada de Carro -->
+                            </div>
                         </div>
+                        <!-- Carros registrados -->
                       </div>
                   </div>
                 </div>
@@ -302,25 +456,67 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form action="">
+                <form method="POST">
                   <div class="row">
-                    <div class="col-lg-6 form-group">
-                      <label for="espaco">Espaço  <span class="text-danger">*</span></label>
-                      <input type="text" placeholder="Insira o espaço" id="espaco" name="espaco" class="form-control">
+                    <div class="col-lg-4 form-group">
+                      <label for="nome">Nome Completo  <span class="text-danger">*</span></label>
+                      <input type="text" placeholder="Cliente" id="nome" name="nome" class="form-control">
                     </div>
-                    <div class="col-lg-6 form-group">
-                      <label for="preco">Preço <span class="text-danger">*</span></label>
-                      <input type="number" placeholder="Insira o preço" id="preco" name="preco" class="form-control">
+                    <div class="col-lg-4 form-group">
+                      <label for="espaco">Bilhete de Identidade  <span class="text-danger">*</span></label>
+                      <input type="text" placeholder="Bilhete de Identidade" id="bilhete" name="bi" class="form-control">
                     </div>
-                    <div class="col-lg-12 form-group">
-                      <label for="descricao">Descrição</label>
-                      <textarea name="descricao" placeholder="Deixe uma informação" id="descricao" class="form-control"></textarea>
+                    <div class="col-lg-4 form-group">
+                      <label for="espaco">Modelo do Carro  <span class="text-danger">*</span></label>
+                      <input type="text" placeholder="Insira o Modelo do Carro" id="modelo" name="modelo" class="form-control">
                     </div>
-                    <div class="form-group col-lg-4">
-                      <input type="submit" value="Adicionar" name="adicionar" class="btn btn-primary rounded form-control">
+                    <div class="col-lg-4 form-group">
+                      <label for="espaco">Cor do Carro  <span class="text-danger">*</span></label>
+                      <input type="text" placeholder="Insira a Cor do Carro" id="cor" name="cor" class="form-control">
+                    </div>
+                    <div class="col-lg-4 form-group">
+                      <label for="preco">Matricula <span class="text-danger">*</span></label>
+                      <input type="text" placeholder="Insira a Matricula" id="matricula" name="matricula" class="form-control">
+                    </div>
+                    <div class="col-lg-4 form-group">
+                      <label for="preco">Data de Entrada <span class="text-danger">*</span></label>
+                      <input type="text" disabled value="<?= Date('Y-m-d H:i:s')?>" placeholder="Insira a Matricula" id="data" name="dataEntrada" class="form-control">
+                    </div>
+                    <div class="form-group col-lg-3">
+                      <input type="submit" value="Adicionar" name="adicionar_carro_estacionado" class="btn btn-primary rounded form-control">
                     </div>
                   </div>
                 </form>
+
+                <?php
+
+                  if(isset($_POST['adicionar_carro_estacionado'])):
+                    $nome      = $_POST['nome'];
+                    $bi        = $_POST['bi'];
+                    $modelo    = $_POST['modelo'];
+                    $cor       = $_POST['cor'];
+                    $date      = $_POST['dataEntrada'];
+                    $matricula = $_POST['matricula'];
+
+                    $parametros = [
+                      ":id"             => $_SESSION['id_admin'],
+                      ":nome"           => $nome,
+                      ":bi"             => $bi,
+                      ":modelo"         => $modelo,
+                      ":cor"            => $cor,
+                      ":matricula"      => $matricula,
+                    ];
+
+                    $inserirCarro = new Model();
+                    $inserirCarro->EXE_NON_QUERY("INSERT INTO tb_estacionar_carro 
+                    (id_admin, nome_cliente, bi, modelo, cor, matricula, data_entrada, data_saida, estado, data_registro_estacionar) 
+                    VALUES (:id, :nome, :bi, :modelo, :cor, :matricula, now(), now(), 0, now())", $parametros);
+
+                    if($inserirCarro):
+                      echo "<script>location.href='registro.php?id=registro'</script>";
+                    endif;
+                  endif;
+                ?>
               </div>
             </div>
           </div>

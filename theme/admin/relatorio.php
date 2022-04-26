@@ -1,14 +1,14 @@
 <?php
 
-    // include '../../source/Config.php';
-    // include '../../source/Model.php';
+    include '../../source/Config.php';
+    include '../../source/Model.php';
     include '../assets/mpdf-6.1/mpdf.php';
 
     switch ($_GET['id']):
       case 'vaga':
         // Instanciando
-        //   $usuario = new Model();
-        //   $sql = $usuario->EXE_QUERY("SELECT * FROM tb_candidatura_vaga INNER JOIN tb_aluno ON tb_candidatura_vaga.id_aluno=tb_aluno.id_aluno");
+          $usuario = new Model();
+          $sql = $usuario->EXE_QUERY("SELECT * FROM tb_vaga");
 
           $html = "
                 <html>
@@ -51,10 +51,9 @@
                                       <thead>
                                           <tr>
                                               <th style='color: white'>Id</th>
-                                              <th style='color: white'>Nome Completo</th>
-                                              <th style='color: white'>Genero</th>
-                                              <th style='color: white'>Contacto</th>
-                                              <th style='color: white'>Data</th>
+                                              <th style='color: white'>Espaço</th>
+                                              <th style='color: white'>Preço</th>
+                                              <th style='color: white'>Descrição</th>
                                           </tr>
                                       </thead>
                                       <tbody>
@@ -62,11 +61,10 @@
               foreach ($sql as $mostrar) :
                 $html = $html ."
                                           <tr>
-                                              <td>{$mostrar["id_candidatura"] }</td>
-                                              <td>{$mostrar["nome"] }</td>
-                                              <td>{$mostrar["sexo"]}</td>
-                                              <td>{$mostrar["contacto"] }</td>
-                                              <td>{$mostrar["data_registro_candidatura"] }</td>
+                                              <td>{$mostrar["id_vaga"] }</td>
+                                              <td>{$mostrar["espaco_vago"] }</td>
+                                              <td>{$mostrar["preco"]}</td>
+                                              <td>{$mostrar["descricao"] }</td>
                                           </tr>
                 ";
                       endforeach;
@@ -86,10 +84,10 @@
           exit();
       break;
 
-      case 'particular':
+      case 'entrada':
           // Instanciando
           $usuario = new Model();
-          $sql = $usuario->EXE_QUERY("SELECT * FROM tb_aluno");
+          $sql = $usuario->EXE_QUERY("SELECT * FROM tb_estacionar_carro WHERE estado=0");
 
           $html = "
                 <html>
@@ -125,7 +123,7 @@
                               <div class='nav-header'>
                                   <h2 class='text-center h5 mk-title'>REPÚBLICA DE ANGOLA</h2>
                                   <h2 class='text-center h5 mk-title'>ANGO-PARQUE</h2>
-                                  <p class='mt-2'>Relatório de estudantes</p>
+                                  <p class='mt-2'>Relatório de Entrada de Carros</p>
                               </div>
                           </div>
                           <div class='body-mk mt-4'>
@@ -135,9 +133,10 @@
                                           <tr>
                                               <th style='color: white'>Id</th>
                                               <th style='color: white'>Nome Completo</th>
-                                              <th style='color: white'>Genero</th>
-                                              <th style='color: white'>Telefone</th>
-                                              <th style='color: white'>Bilhete</th>
+                                              <th style='color: white'>B.I</th>
+                                              <th style='color: white'>Modelo</th>
+                                              <th style='color: white'>Data Entrada</th>
+                                              <th style='color: white'>Matricula</th>
                                           </tr>
                                       </thead>
                                       <tbody>
@@ -145,11 +144,12 @@
               foreach ($sql as $mostrar) :
                 $html = $html ."
                                           <tr>
-                                              <td>{$mostrar["id_aluno"] }</td>
-                                              <td>{$mostrar["nome"] }</td>
-                                              <td>{$mostrar["sexo"] }</td>
-                                              <td>{$mostrar["contacto"] }</td>
-                                              <td>{$mostrar["numero_processo"] }</td>
+                                              <td>{$mostrar["id_estacionar"] }</td>
+                                              <td>{$mostrar["nome_cliente"] }</td>
+                                              <td>{$mostrar["bi"] }</td>
+                                              <td>{$mostrar["modelo"] }</td>
+                                              <td>{$mostrar["data_entrada"] }</td>
+                                              <td>{$mostrar["matricula"] }</td>
                                           </tr>
                 ";
                       endforeach;
@@ -167,10 +167,11 @@
           $mpdf->WriteHTML($html);
           $mpdf->Output($multa, 'I');
           exit();
-      case 'entrada':
+      case 'saida':
           // Instanciando
           $usuario = new Model();
-          $sql = $usuario->EXE_QUERY("SELECT * FROM tb_vaga_estagio INNER JOIN tb_empresa ON tb_vaga_estagio.id_empresa=tb_empresa.id_empresa");
+          $sql = $usuario->EXE_QUERY("SELECT * FROM tb_estacionar_carro WHERE estado=1");
+
           $html = "
                 <html>
                   <head>
@@ -181,6 +182,7 @@
                           .mk-title {font-weight: 100;font-size: 18px;}
                           .mk-title-lg {font-weight: 100;font-size: 18px}
                           img {width: 80px;height: 80px}
+
 
                           table { width: 100%; border-spacing: 0 0.5rem; }
                           table th {
@@ -204,7 +206,7 @@
                               <div class='nav-header'>
                                   <h2 class='text-center h5 mk-title'>REPÚBLICA DE ANGOLA</h2>
                                   <h2 class='text-center h5 mk-title'>ANGO-PARQUE</h2>
-                                  <p class='mt-2'>Relatório de Vagas</p>
+                                  <p class='mt-2'>Relatório de Saída de Carros</p>
                               </div>
                           </div>
                           <div class='body-mk mt-4'>
@@ -213,9 +215,11 @@
                                       <thead>
                                           <tr>
                                               <th style='color: white'>Id</th>
-                                              <th style='color: white'>Empresa</th>
-                                              <th style='color: white'>Area de atuação</th>
-                                              <th style='color: white'>Data de registro</th>
+                                              <th style='color: white'>Nome Completo</th>
+                                              <th style='color: white'>B.I</th>
+                                              <th style='color: white'>Modelo</th>
+                                              <th style='color: white'>Data Saída</th>
+                                              <th style='color: white'>Matricula</th>
                                           </tr>
                                       </thead>
                                       <tbody>
@@ -223,10 +227,12 @@
               foreach ($sql as $mostrar) :
                 $html = $html ."
                                           <tr>
-                                              <td>{$mostrar["id_vaga_estagio"] }</td>
-                                              <td>{$mostrar["nome_empresa"] }</td>
-                                              <td>{$mostrar["area_atuacao_vaga"] }</td>
-                                              <td>{$mostrar["data_registro_vaga"] }</td>
+                                              <td>{$mostrar["id_estacionar"] }</td>
+                                              <td>{$mostrar["nome_cliente"] }</td>
+                                              <td>{$mostrar["bi"] }</td>
+                                              <td>{$mostrar["modelo"] }</td>
+                                              <td>{$mostrar["data_saida"] }</td>
+                                              <td>{$mostrar["matricula"] }</td>
                                           </tr>
                 ";
                       endforeach;
@@ -249,7 +255,9 @@
       case 'solicitacoes':
           // Instanciando
           $usuario = new Model();
-          //   $sql = $usuario->EXE_QUERY("SELECT * FROM tb_emissao_declaracao INNER JOIN tb_aluno ON tb_emissao_declaracao.id_aluno = tb_aluno.id_aluno");
+          $sql = $usuario->EXE_QUERY("SELECT * FROM tb_solicitacao_vaga
+          INNER JOIN tb_vaga ON tb_solicitacao_vaga.id_vaga=tb_vaga.id_vaga
+          INNER JOIN tb_cliente ON tb_solicitacao_vaga.id_cliente=tb_cliente.id_cliente");
           $html = "
                 <html>
                   <head>
@@ -283,7 +291,7 @@
                               <div class='nav-header'>
                                   <h2 class='text-center h5 mk-title'>REPÚBLICA DE ANGOLA</h2>
                                   <h2 class='text-center h5 mk-title'>ANGO-PARQUE</h2>
-                                  <p class='mt-2'>Relatório de Declarações</p>
+                                  <p class='mt-2'>Relatório de Solicitações de Vaga</p>
                               </div>
                           </div>
                           <div class='body-mk mt-4'>
@@ -292,8 +300,9 @@
                                       <thead>
                                           <tr>
                                               <th style='color: white'>Id</th>
-                                              <th style='color: white'>Nome Aluno</th>
-                                              <th style='color: white'>Data de Emissão</th>
+                                              <th style='color: white'>Solicitante</th>
+                                              <th style='color: white'>Vaga</th>
+                                              <th style='color: white'>Data Solicitação</th>
                                           </tr>
                                       </thead>
                                       <tbody>
@@ -301,9 +310,10 @@
               foreach ($sql as $mostrar) :
                 $html = $html ."
                                           <tr>
-                                              <td>{$mostrar["id_declaracao"] }</td>
-                                              <td>{$mostrar["nome"] }</td>
-                                              <td>{$mostrar["data_emissao"] }</td>
+                                              <td>{$mostrar["id_solicitacao_vaga"] }</td>
+                                              <td>{$mostrar["nome_cliente"] }</td>
+                                              <td>{$mostrar["espaco_vago"] }</td>
+                                              <td>{$mostrar["data_solicitacao"] }</td>
                                           </tr>
                 ";
                       endforeach;
@@ -324,8 +334,9 @@
          break;
       case 'carros':
         // Instanciando
-        // $usuario = new Model();
-        // $sql = $usuario->EXE_QUERY("SELECT * FROM tb_emissao_declaracao INNER JOIN tb_aluno ON tb_emissao_declaracao.id_aluno = tb_aluno.id_aluno");
+        $usuario = new Model();
+        $sql = $usuario->EXE_QUERY("SELECT * FROM tb_carro_cliente
+        INNER JOIN tb_cliente ON tb_carro_cliente.id_cliente=tb_cliente.id_cliente");
         $html = "
               <html>
                 <head>
@@ -368,8 +379,11 @@
                                     <thead>
                                         <tr>
                                             <th style='color: white'>Id</th>
-                                            <th style='color: white'>Nome Aluno</th>
-                                            <th style='color: white'>Data de Emissão</th>
+                                            <th style='color: white'>Dono do Carro</th>
+                                            <th style='color: white'>Modelo</th>
+                                            <th style='color: white'>Marca</th>
+                                            <th style='color: white'>Matricula</th>
+                                            <th style='color: white'>Data de registro</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -377,9 +391,12 @@
             foreach ($sql as $mostrar) :
               $html = $html ."
                                         <tr>
-                                            <td>{$mostrar["id_declaracao"] }</td>
-                                            <td>{$mostrar["nome"] }</td>
-                                            <td>{$mostrar["data_emissao"] }</td>
+                                            <td>{$mostrar["id_carro"] }</td>
+                                            <td>{$mostrar["nome_cliente"] }</td>
+                                            <td>{$mostrar["modelo"] }</td>
+                                            <td>{$mostrar["marca"] }</td>
+                                            <td>{$mostrar["matricula"] }</td>
+                                            <td>{$mostrar["data_registro_carro"] }</td>
                                         </tr>
               ";
                     endforeach;
