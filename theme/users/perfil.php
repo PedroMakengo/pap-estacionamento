@@ -42,32 +42,55 @@
                   data-aos-duration="2300"
                 >
                  <div class="p-4 card">
-                    <form action="">
+                    <form method="POST">
                       <div class="row">
-                        <div class="col-lg-6 form-group">
-                          <label for="">Usuário</label>
-                          <input type="text" class="form-control">
-                        </div>
-                        <div class="col-lg-6 form-group">
-                          <label for="">E-mail</label>
-                          <input type="text" class="form-control">
-                        </div>
-                        <div class="col-lg-6 form-group">
-                          <label for="">Telefone</label>
-                          <input type="text" class="form-control">
-                        </div>
-                        <div class="col-lg-6 form-group">
-                          <label for="">Número do BI</label>
-                          <input type="text" class="form-control">
-                        </div>
-                        <div class="col-lg-6 form-group">
-                          <label for="">Idade</label>
-                          <input type="text" class="form-control">
-                        </div>
-                        <div class="col-lg-6 form-group">
-                          <label for="">Genero</label>
-                          <input type="text" class="form-control">
-                        </div>
+                        <?php
+                          $parametros = [
+                            ":id"   => $_SESSION["id"],
+                          ]; 
+                          $perfilUsuario = new Model();
+                          $atualizarPerfil = $perfilUsuario->EXE_QUERY("SELECT * FROM tb_cliente WHERE id_cliente=:id", $parametros);
+                          foreach($atualizarPerfil as $mostrar):
+                        ?>
+                            <div class="col-lg-6 form-group">
+                              <label for="">Nome Completo:</label>
+                              <input type="text" name="nome" value="<?= $mostrar['nome_cliente'] ?>" class="form-control" >
+                            </div>
+                            <div class="col-lg-6 form-group">
+                              <label for="">E-mail: </label>
+                              <input type="text" name="email" value="<?= $mostrar['email_cliente'] ?>" class="form-control">
+                            </div>
+                            <div class="col-lg-6 form-group">
+                              <label for="">Senha:</label>
+                              <input type="text" name="senha"  class="form-control">
+                            </div>
+                            <div class="col-lg-6 form-group">
+                              <label for="">Telefone:</label>
+                              <input type="tel" name="tel" value="<?= $mostrar['tel_cliente'] ?>" class="form-control">
+                            </div>
+                            <div class="col-lg-6 form-group">
+                              <label for="">Número do BI:</label>
+                              <input type="text" maxlength="15" name="bi" value="<?= $mostrar['num_bi'] ?>" class="form-control">
+                            </div>
+                            <div class="col-lg-6 form-group">
+                              <label for="">Idade:</label>
+                              <input type="text" name="idade" value="<?= $mostrar['idade'] ?>" class="form-control">
+                            </div>
+                           
+                            <div class="col-lg-6 form-group">
+                              <label for="">Foto:</label>
+                              <input type="file" name="foto" class="form-control">
+                            </div>
+                            <div class="col-lg-6 form-group">
+                              <label for="">Genero:</label>
+                              <select name="genero" id="" class="form-control">
+                                <option value="M">Masculino</option>
+                                <option value="F">Femenino</option>
+                              </select>
+                            </div>
+                        <?php 
+                        endforeach;
+                        ?>
                         <div class="col-lg-4 form-group">
                           <input type="submit" class="form-control btn btn-primary" value="Atualizar">
                         </div>

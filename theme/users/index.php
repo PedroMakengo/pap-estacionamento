@@ -95,51 +95,69 @@
                       <!-- Vagas Disponíveis -->
                       <div class="tab-pane fade" id="nav-vagasDisponiveis" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <div class="rounded p-4 card">
-                          <table class="table mt-4" id="dataTableGeral">
-                            <thead>
-                              <tr>
-                                <th>#</th>
-                                <th>Espaço</th>
-                                <th>Preço</th>
-                                <th>Descrição</th>
-                                <th>Acção</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <?php
-                                $vagasDisponivel = new Model();
-                                $buscandoDisponivel = $vagasDisponivel->EXE_QUERY("SELECT * FROM tb_vaga");
-                                if(count($buscandoDisponivel)):
-                                  foreach($buscandoDisponivel as $mostrar): ?>
-                                    <tr>
-                                      <td><?= $mostrar['id_vaga'] ?></td>
-                                      <td><?= $mostrar['espaco_vago'] ?></td>
-                                      <td><?= $mostrar['preco'] ?></td>
-                                      <td><?= $mostrar['descricao'] ?></td>
-                                      <td>
-                                        <a href="cadastro.php?id=<?= $mostrar['id_vaga'] ?>" class="btn btn-primary btn-sm">
-                                          <i class="fas fa-eye"></i>
-                                        </a>
-                                      </td>
-                                    </tr>
+                          <div class="table-responsive">
+                            <table class="table mt-4" id="dataTableGeral">
+                              <thead>
+                                <tr>
+                                  <th>#</th>
+                                  <th>Espaço</th>
+                                  <th>Preço</th>
+                                  <th>Descrição</th>
+                                  <th class="text-center">Acção</th>
+                                </tr>
+                              </thead>
+                              <tbody>
                                 <?php
-                                    endforeach;
-                                  else:
-                                ?>
-                                    <tr>
-                                      <td></td>
-                                    </tr>
-                                <?php
-                                  endif;
-                                ?>
-                            </tbody>
-                          </table>
+                                  $vagasDisponivel = new Model();
+                                  $buscandoDisponivel = $vagasDisponivel->EXE_QUERY("SELECT * FROM tb_vaga");
+                                  if(count($buscandoDisponivel)):
+                                    foreach($buscandoDisponivel as $mostrar): ?>
+                                      <tr>
+                                        <td><?= $mostrar['id_vaga'] ?></td>
+                                        <td><?= $mostrar['espaco_vago'] ?></td>
+                                        <td><?= $mostrar['preco'] ?></td>
+                                        <td><?= $mostrar['descricao'] ?></td>
+                                        <td class="text-center">
+                                          <?php 
+                                            $parametros = [
+                                              ":idVaga"     => $mostrar['id_vaga'],
+                                              ":id"         => $_SESSION['id']
+                                            ];
+                                            $verificarCandidaturaVaga = new Model();
+                                            $verificando = $verificarCandidaturaVaga->EXE_QUERY("SELECT * FROM tb_solicitacao_vaga WHERE id_vaga=:idVaga AND id_cliente=:id", $parametros);
+                                            if($verificando):?>
+                                              <button disabled class="btn btn-primary btn-sm">
+                                                <i class="fas fa-eye"></i>
+                                              </button>
+                                            <?php 
+                                            else:?>
+                                              <a href="cadastro.php?id=<?= $mostrar['id_vaga'] ?>" class="btn btn-primary btn-sm">
+                                                <i class="fas fa-eye"></i>
+                                              </a>
+                                            <?php 
+                                            endif;?>
+                                        </td>
+                                      </tr>
+                                  <?php
+                                      endforeach;
+                                    else:
+                                  ?>
+                                      <tr>
+                                        <td colspan="12" class="text-white text-center bg-warning">Não existe nenhuma vaga disponível</td>
+                                      </tr>
+                                  <?php
+                                    endif;
+                                  ?>
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                       </div>
                       <!-- Vagas Disponíveis -->
 
                       <!-- Minhas Solicitações Disponíveis -->
                       <div class="tab-pane fade" id="nav-vagasSolicitadas" role="tabpanel" aria-labelledby="nav-profile-tab">
+                      
                         <div class="rounded p-4 card">
                           <table class="table mt-4" id="dataTableEstacionamento">
                             <thead>
@@ -159,10 +177,10 @@
                                 if(count($buscandoSolicitacoes)):
                                   foreach($buscandoSolicitacoes as $mostrar): ?>
                                     <tr>
-                                      <td> Vaga Solicitada</td>
-                                      <td>Item 2</td>
-                                      <td>Item 3</td>
-                                      <td>Item 4</td>
+                                      <td><?= $mostrar['id_solicitacao_vaga'] ?></td>
+                                      <td><?= $mostrar['mensagem'] ?></td>
+                                      <td><?= $mostrar['estado_solicitacao'] === "0" ? '<span class="text-danger">Por aprovar</span>' : '<span class="text-success">Aprovado</span>' ?></td>
+                                      <td><?= $mostrar['data_solicitacao'] ?></td>
                                     </tr>
                                   <?php 
                                     endforeach;
@@ -223,6 +241,8 @@
         </div>
       </div>
     </div>
+
+    
       
   <!-- Footer -->
   <?php require 'includes/footer.php' ?>
