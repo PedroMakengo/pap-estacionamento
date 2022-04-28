@@ -39,8 +39,8 @@
                   data-aos-duration="2300"
                 >
 
-               
-                    <div class="tab-content" id="nav-tabContent">
+                  <div class="tab-content" id="nav-tabContent">
+                      <!-- Entrada e Saída -->
                       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         <!-- Tabela de Entrada e Saída -->
                         <div class="rounded p-4 card">
@@ -59,14 +59,16 @@
 
                                 $parametros = [":id" => $_SESSION['id']];
                                 $buscandoEntradaSaida = new Model();
-                                $buscando = $buscandoEntradaSaida->EXE_QUERY("SELECT * FROM tb_entrada_saida INNER JOIN tb_carro_cliente ON tb_entrada_saida.id_carro=tb_carro_cliente.id_carro WHERE tb_carro_cliente.id_cliente=:id", $parametros);
+                                $buscando = $buscandoEntradaSaida->EXE_QUERY("SELECT * FROM tb_entrada_saida 
+                                INNER JOIN tb_carro_cliente ON tb_entrada_saida.id_carro=tb_carro_cliente.id_carro 
+                                WHERE tb_carro_cliente.id_cliente=:id", $parametros);
 
                                 if(count($buscando)):
                                   foreach($buscando as $mostrar):?>
                                     <tr>
-                                      <td>Item 0</td>
+                                      <td><?= $mostrar['id_entrada'] ?></td>
                                       <td>
-                                        Vaga Solicitada
+                                      <?= $mostrar['id_entrada'] ?>
                                       </td>
                                       <td>Item 2</td>
                                       <td>Item 3</td>
@@ -87,6 +89,10 @@
                         </div>
                         <!-- End Tabela Entrada e Saída -->
                       </div>
+                      <!-- Entrada e Saída -->
+
+
+                      <!-- Vagas Disponíveis -->
                       <div class="tab-pane fade" id="nav-vagasDisponiveis" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <div class="rounded p-4 card">
                           <table class="table mt-4" id="dataTableGeral">
@@ -130,7 +136,9 @@
                           </table>
                         </div>
                       </div>
+                      <!-- Vagas Disponíveis -->
 
+                      <!-- Minhas Solicitações Disponíveis -->
                       <div class="tab-pane fade" id="nav-vagasSolicitadas" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <div class="rounded p-4 card">
                           <table class="table mt-4" id="dataTableEstacionamento">
@@ -168,8 +176,9 @@
                           </table>
                         </div>
                       </div>
+                      <!-- Minhas Solicitações Disponíveis -->
 
-
+                      <!-- Funcionamento -->
                       <div class="tab-pane fade" id="nav-funcionamento" role="tabpanel" aria-labelledby="nav-contact-tab">
                         <div class="accordion" id="accordionExample">
                             <div class="card border">
@@ -204,7 +213,7 @@
                           </div>
                         </div>
                       </div>
-
+                      <!-- Funcionamento -->
                       
                     </div>
                 </div>
