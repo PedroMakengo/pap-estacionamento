@@ -42,7 +42,7 @@
                   data-aos-duration="2300"
                 >
                  <div class="p-4 card">
-                    <form method="POST">
+                    <form method="POST" enctype="multipart/form-data">
                       <div class="row">
                         <?php
                           $parametros = [
@@ -84,6 +84,7 @@
                             <div class="col-lg-6 form-group">
                               <label for="">Genero:</label>
                               <select name="genero" id="" class="form-control">
+                                <option value="">Selecione o genero</option>
                                 <option value="M">Masculino</option>
                                 <option value="F">Femenino</option>
                               </select>
@@ -92,10 +93,54 @@
                         endforeach;
                         ?>
                         <div class="col-lg-4 form-group">
-                          <input type="submit" class="form-control btn btn-primary" value="Atualizar">
+                          <input type="submit" name="atualizarPerfilUser" class="form-control btn btn-primary" value="Atualizar">
                         </div>
                       </div>
                     </form>
+
+                    <?php
+
+                      if(isset($_POST['atualizarPerfilUser'])):
+                        $nome = $_POST['nome'];
+                        $email = $_POST['email'];
+
+                        $senha = $_POST['senha'] === '' ? $mostrar['senha_cliente'] : md5(md5($_POST['senha']));
+
+                        $target        = "assets/images/profile/" . basename($_FILES['foto']['name']);
+                        $foto          = $_FILES['foto']['name'] === '' ? $mostrar['foto_cliente'] : $_FILES['foto']['name'];
+
+                        $genero = $_POST['genero'] === "" ? $mostrar['genero'] : $_POST['genero']; 
+                        $tel    = $_POST['tel'];
+                        $idade  = $_POST['idade'];
+                        $bi     = $_POST['bi'];
+
+                        $parametros = [
+                          ":id"   => $_SESSION["id"],
+                          ":nome" => $nome,
+                          ":senha" => $senha,
+                          ":foto"  => $foto,
+                          ":idade" => $idade,
+                          ":bi"    => $bi,
+                          ":email" => $email,
+                          ":genero"=> $genero
+                        ];
+
+                        $atualizar = new Model();
+                        $atualizar->EXE_NON_QUERY("UPDATE tb_cliente SET
+                        nome_cliente=:nome,
+                        senha_cliente=:senha,
+                        foto_cliente=:foto,
+                        idade=:idade, 
+                        num_bi=:bi,
+                        email_cliente=:email,
+                        genero=:genero
+                        WHERE id_cliente=:id
+                        ", $parametros);
+                        if($atualizar):
+                          echo "<script>location.href='perfil.php?id=perfil'</script>";
+                        endif;
+                      endif;
+                    ?>
                   </div>
                 </div>
               </div>
