@@ -22,6 +22,12 @@
   $(function () {
     AOS.init();
     $('#dataGeral').dataTable();
+    $('#perfilUsuarioTable').dataTable();
+    $('#vagaTable').dataTable();
+    $('#entradaCarro').dataTable();
+    $('#saidaCarro').dataTable();
+    $('#solicitacaoTable').dataTable();
+    $('#carroRegistrado').dataTable();
 
     // Trabalhar nos gráficos 
     var lineChart = document.getElementById("mycompra-chart").getContext("2d");

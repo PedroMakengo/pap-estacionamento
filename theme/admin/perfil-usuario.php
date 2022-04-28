@@ -93,7 +93,7 @@
                         <h2 class="h5">Dados relacionados</h2>
                         <hr>
                         <div class="table-responsive">
-                          <table class="table" id="dataTableEstacionamento">
+                          <table class="table" id="perfilUsuarioTable">
                             <thead>
                               <tr>
                                 <th>#</th>
