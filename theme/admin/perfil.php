@@ -108,7 +108,7 @@
                     $email = $_POST['email'];
                     $senha = $_POST['senha'] === '' ? $senhaRetornado : md5(md5($_POST['senha']));
 
-                    $target        = "assets/images/profile/" . basename($_FILES['foto']['name']);
+                    $target        = "../assets/images/profile/" . basename($_FILES['foto']['name']);
                     $foto          = $_FILES['foto']['name'] === '' ? $fotoRetornado : $_FILES['foto']['name'];
 
                     $parametros = [
@@ -129,6 +129,11 @@
                      ", $parametros);
 
                      if($atualizarMeuPerfil):
+                      if (move_uploaded_file($_FILES['foto']['tmp_name'], $target)) :
+                        $sms = "Uploaded feito com sucesso";
+                      else:
+                          $sms = "Não foi possível fazer o upload";
+                      endif;
                       echo "<script>location.href='perfil.php?id=perfil'</script>";
                      endif;
 

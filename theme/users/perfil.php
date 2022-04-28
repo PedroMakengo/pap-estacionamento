@@ -27,11 +27,30 @@
                   data-aos-duration="2300"
                 >
                   <div class="p-4 card">
+                    <?php 
+                      $parametros = [":id" => $_SESSION['id']];
+                      $buscandoDadosPerfil = new Model();
+                      $pegandoDadosPerfil = $buscandoDadosPerfil->EXE_QUERY("SELECT * FROM tb_cliente WHERE id_cliente=:id", $parametros);
+                      foreach($pegandoDadosPerfil as $mostrar):
+                        $nome = $mostrar['nome_cliente'];
+                        $foto = $mostrar['foto_cliente'];
+                        $bi   = $mostrar['num_bi'];
+                        $genero = $mostrar['genero'];
+                        $idade = $mostrar['idade'];
+                        $tel   = $mostrar['tel_cliente'];
+                        $email = $mostrar['email_cliente'];
+                      endforeach;
+                    ?>
                     <div style="margin: 0 auto; text-align: center; ">
-                      <img src="../assets/images/profile/profile.jpg" alt="" style="border-radius: 50%; width: 100px; height: 100px;">
+                      <img src="../assets/images/profile/<?= $foto ?>" alt="" style="border-radius: 50%; width: 100px; height: 100px;">
                     </div>
-                    <div class="text-center mt-2">
-                      <strong><?= $_SESSION['nome'] ?></strong>
+                    <div class="text-center mt-3">
+                      <p>Nome : <strong><?= $nome ?></strong></p>
+                      <p>E-mail : <strong><?= $email ?></strong></p>
+                      <p>BI : <strong><?= $bi ?></strong></p>
+                      <p>Telefone : <strong><?= $tel ?></strong></p>
+                      <p>Idade : <strong><?= $idade ?> anos</strong></p>
+                      <p>Genero : <strong><?= $genero === 'M' ? 'Masculino':'Feminino'; ?></strong></p>
                     </div>
                   </div>
                 </div>
@@ -56,22 +75,27 @@
                               <label for="">Nome Completo:</label>
                               <input type="text" name="nome" value="<?= $mostrar['nome_cliente'] ?>" class="form-control" >
                             </div>
+
                             <div class="col-lg-6 form-group">
                               <label for="">E-mail: </label>
                               <input type="text" name="email" value="<?= $mostrar['email_cliente'] ?>" class="form-control">
                             </div>
+
                             <div class="col-lg-6 form-group">
                               <label for="">Senha:</label>
-                              <input type="text" name="senha"  class="form-control">
+                              <input type="password" name="senha"  class="form-control">
                             </div>
+
                             <div class="col-lg-6 form-group">
                               <label for="">Telefone:</label>
                               <input type="tel" name="tel" value="<?= $mostrar['tel_cliente'] ?>" class="form-control">
                             </div>
+
                             <div class="col-lg-6 form-group">
                               <label for="">Número do BI:</label>
                               <input type="text" maxlength="15" name="bi" value="<?= $mostrar['num_bi'] ?>" class="form-control">
                             </div>
+
                             <div class="col-lg-6 form-group">
                               <label for="">Idade:</label>
                               <input type="text" name="idade" value="<?= $mostrar['idade'] ?>" class="form-control">
@@ -106,7 +130,7 @@
 
                         $senha = $_POST['senha'] === '' ? $mostrar['senha_cliente'] : md5(md5($_POST['senha']));
 
-                        $target        = "assets/images/profile/" . basename($_FILES['foto']['name']);
+                        $target        = "../assets/images/profile/" . basename($_FILES['foto']['name']);
                         $foto          = $_FILES['foto']['name'] === '' ? $mostrar['foto_cliente'] : $_FILES['foto']['name'];
 
                         $genero = $_POST['genero'] === "" ? $mostrar['genero'] : $_POST['genero']; 
@@ -115,28 +139,33 @@
                         $bi     = $_POST['bi'];
 
                         $parametros = [
-                          ":id"   => $_SESSION["id"],
                           ":nome" => $nome,
                           ":senha" => $senha,
                           ":foto"  => $foto,
                           ":idade" => $idade,
                           ":bi"    => $bi,
                           ":email" => $email,
-                          ":genero"=> $genero
+                          ":genero"=> $genero,
+                          ":id"   => $_SESSION["id"]
                         ];
 
                         $atualizar = new Model();
                         $atualizar->EXE_NON_QUERY("UPDATE tb_cliente SET
-                        nome_cliente=:nome,
-                        senha_cliente=:senha,
-                        foto_cliente=:foto,
-                        idade=:idade, 
-                        num_bi=:bi,
-                        email_cliente=:email,
-                        genero=:genero
-                        WHERE id_cliente=:id
+                          nome_cliente=:nome,
+                          senha_cliente=:senha,
+                          foto_cliente=:foto,
+                          idade=:idade, 
+                          num_bi=:bi,
+                          email_cliente=:email,
+                          genero=:genero
+                          WHERE id_cliente=:id
                         ", $parametros);
                         if($atualizar):
+                          if (move_uploaded_file($_FILES['foto']['tmp_name'], $target)) :
+                            $sms = "Uploaded feito com sucesso";
+                          else:
+                              $sms = "Não foi possível fazer o upload";
+                          endif;
                           echo "<script>location.href='perfil.php?id=perfil'</script>";
                         endif;
                       endif;
