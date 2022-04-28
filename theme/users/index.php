@@ -91,7 +91,6 @@
                       </div>
                       <!-- Entrada e Saída -->
 
-
                       <!-- Vagas Disponíveis -->
                       <div class="tab-pane fade" id="nav-vagasDisponiveis" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <div class="rounded p-4 card">
@@ -232,7 +231,7 @@
                         </div>
                       </div>
                       <!-- Funcionamento -->
-                      
+
                     </div>
                 </div>
               </div>

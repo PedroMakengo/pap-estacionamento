@@ -66,7 +66,12 @@
               </li>
               <li class="<?= $_GET['id'] == 'registro' ? 'active' : '' ?>">
                 <a href="registro.php?id=registro">
-                  <i class="fas fa-car"></i>Registro</a
+                  <i class="fas fa-car"></i>Registro Presencial</a
+                >
+              </li>
+              <li class="<?= $_GET['id'] == 'online' ? 'active' : '' ?>">
+                <a href="registro-online.php?id=online">
+                  <i class="fas fa-car"></i>Registro Online</a
                 >
               </li>
               <li class="<?= $_GET['perfil'] == 'perfil' ? 'active' : '' ?>">

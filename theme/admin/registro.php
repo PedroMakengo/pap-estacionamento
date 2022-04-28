@@ -310,15 +310,35 @@
                                           <td><?= $mostrar['id_solicitacao_vaga'] ?></td>
                                           <td><?= $mostrar['nome_cliente'] ?></td>
                                           <td><?= $mostrar['espaco_vago'] ?></td>
-                                          <td><?= $mostrar['estado_solicitacao'] ?></td>
+                                          <td><?= $mostrar['estado_solicitacao'] === "0"  ? '<span class="text-danger">Por aprovar</span>' : '<span class="text-success">Aprovado</span>' ?></td>
                                           <td><?= $mostrar['data_solicitacao'] ?></td>
                                           <td class="text-center">
-                                            <a href="#" class="btn btn-sm btn-primary">
-                                              <i class="fas fa-eye"></i>
-                                            </a>
-                                            <a href="#" class="btn btn-sm btn-danger">
-                                              <i class="fas fa-trash"></i>
-                                            </a>
+                                            <?php if($mostrar['estado_solicitacao'] === "0"): ?>
+                                            <form method="POST">
+                                              <button name="<?= $submeter = 'aceitar'.$mostrar['id_solicitacao_vaga'] ?>" class="btn btn-sm btn-primary">
+                                                <i class="fas fa-thumbs-down"></i>
+                                              </button>
+                                              <?php
+                                                if(isset($_POST[$submeter])):
+                                                  $parametros = [
+                                                    ":id" => $mostrar['id_solicitacao_vaga'],
+                                                    ":estado" => 1
+                                                  ];
+                                                  $atualizarSolicitacao = new Model();
+                                                  $atualizarSolicitacao->EXE_NON_QUERY("UPDATE tb_solicitacao_vaga SET
+                                                  estado_solicitacao=:estado
+                                                  WHERE id_solicitacao_vaga=:id", $parametros);
+
+                                                  if($atualizarSolicitacao):
+                                                    echo "<script>location.href='registro.php?id=registro'</script>";
+                                                  endif;
+                                                endif;?>
+                                            </form>
+                                            <?php else: ?>
+                                                <button disabled class="btn btn-sm btn-primary" title="Solicitação Aprovada">
+                                                  <i class="fas fa-thumbs-down"></i>
+                                                </button>
+                                            <?php endif; ?>
                                           </td>
                                         </tr>
                                       <?php
