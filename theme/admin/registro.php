@@ -38,9 +38,6 @@
                           <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Saída de Carro</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#solicitacao" role="tab" aria-controls="contact" aria-selected="false">Solicitação de vagas</a>
-                        </li>
-                        <li class="nav-item">
                           <a class="nav-link" id="contact-tab" data-toggle="tab" href="#carros" role="tab" aria-controls="contact" aria-selected="false">Carros registrados</a>
                         </li>
                       </ul>
@@ -277,112 +274,6 @@
                             </div>
                         </div>
                         <!-- Saída de Carro -->
-
-                        <!-- Solicitação de Vagas -->
-                        <div class="tab-pane fade" id="solicitacao" role="tabpanel" aria-labelledby="contact-tab">
-                            <div class="p-2">
-                              <div class="row">
-                                <div class="col-lg-6">
-                                    <a href="relatorio.php?id=solicitacoes" class="btn btn-primary">
-                                      <i class="fas fa-file"></i> Visualizar relatório
-                                    </a>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="p-2 mt-2">
-                              <!-- End Tabela Estacionar -->
-                              <div class="table-responsive">
-                                <table class="table" id="solicitacaoTable">
-                                  <thead>
-                                    <tr>
-                                      <th>#</th>
-                                      <th>Nome do Cliente</th>
-                                      <th>Vaga</th>
-                                      <th>Estado Solicitação</th>
-                                      <th>Data de Solicitação</th>
-                                      <th class="text-center">Acções</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                      <?php
-                                        $buscandoEntradaCarro = new Model();
-                                        $busca = $buscandoEntradaCarro->EXE_QUERY("SELECT * FROM tb_solicitacao_vaga
-                                        INNER JOIN tb_vaga ON tb_solicitacao_vaga.id_vaga=tb_vaga.id_vaga
-                                        INNER JOIN tb_cliente ON tb_solicitacao_vaga.id_cliente=tb_cliente.id_cliente
-                                        ");
-                                        if($busca):
-                                          foreach ($busca as $mostrar):
-                                      ?>
-                                        <tr>
-                                          <td><?= $mostrar['id_solicitacao_vaga'] ?></td>
-                                          <td><?= $mostrar['nome_cliente'] ?></td>
-                                          <td><?= $mostrar['espaco_vago'] ?></td>
-                                          <td><?= $mostrar['estado_solicitacao'] === "0"  ? '<span class="text-danger">Por aprovar</span>' : '<span class="text-success">Aprovado</span>' ?></td>
-                                          <td><?= $mostrar['data_solicitacao'] ?></td>
-                                          <td class="text-center">
-                                            <?php if($mostrar['estado_solicitacao'] === "0"): ?>
-                                            <form method="POST">
-                                              <button name="<?= $submeter = 'aceitar'.$mostrar['id_solicitacao_vaga'] ?>" class="btn btn-sm btn-primary">
-                                                <i class="fas fa-thumbs-up"></i>
-                                              </button>
-                                              <?php
-                                                if(isset($_POST[$submeter])):
-                                                  $parametros = [
-                                                    ":id" => $mostrar['id_solicitacao_vaga'],
-                                                    ":estado" => 1
-                                                  ];
-                                                  $atualizarSolicitacao = new Model();
-                                                  $atualizarSolicitacao->EXE_NON_QUERY("UPDATE tb_solicitacao_vaga SET
-                                                  estado_solicitacao=:estado
-                                                  WHERE id_solicitacao_vaga=:id", $parametros);
-
-                                                  if($atualizarSolicitacao):
-                                                    echo "<script>location.href='registro.php?id=registro'</script>";
-                                                  endif;
-                                                endif;?>
-                                            </form>
-                                            <?php else: ?>
-                                             <form method="POST">
-                                                <button name="<?= $negar = 'negar'.$mostrar['id_solicitacao_vaga'] ?>" class="btn btn-sm btn-primary" title="Solicitação Aprovada">
-                                                  <i class="fas fa-thumbs-down"></i>
-                                                </button>
-
-                                                <?php
-                                                if(isset($_POST[$negar])):
-                                                  $parametros = [
-                                                    ":id" => $mostrar['id_solicitacao_vaga'],
-                                                    ":estado" => 0
-                                                  ];
-                                                  $atualizarSolicitacao = new Model();
-                                                  $atualizarSolicitacao->EXE_NON_QUERY("UPDATE tb_solicitacao_vaga SET
-                                                  estado_solicitacao=:estado
-                                                  WHERE id_solicitacao_vaga=:id", $parametros);
-
-                                                  if($atualizarSolicitacao):
-                                                    echo "<script>location.href='registro.php?id=registro'</script>";
-                                                  endif;
-                                                endif;?>
-                                             </form>
-                                            <?php endif; ?>
-                                          </td>
-                                        </tr>
-                                      <?php
-                                        endforeach;
-                                      else:
-                                        ?>
-                                        <tr>
-                                          <td colspan="12" class="text-center bg-warning text-white">Não existe nenhuma saída</td>
-                                        </tr>
-                                        <?php
-                                      endif;
-                                      ?>
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                        </div>
-                        <!-- Solicitação de Vagas -->
 
                         <!-- Carros registrados -->
                         <div class="tab-pane fade" id="carros" role="tabpanel" aria-labelledby="contact-tab">
