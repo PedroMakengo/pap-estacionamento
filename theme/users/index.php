@@ -43,49 +43,51 @@
                       <!-- Entrada e Saída -->
                       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         <!-- Tabela de Entrada e Saída -->
-                        <div class="rounded p-4 card">
-                        <table class="table mt-4">
-                            <thead>
-                              <tr>
-                                <th>#</th>
-                                <th>Carro</th>
-                                <th>Data de Entrada</th>
-                                <th>Data de Saída</th>
-                                <th>Data de registro</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <?php 
-
-                                $parametros = [":id" => $_SESSION['id']];
-                                $buscandoEntradaSaida = new Model();
-                                $buscando = $buscandoEntradaSaida->EXE_QUERY("SELECT * FROM tb_entrada_saida 
-                                INNER JOIN tb_carro_cliente ON tb_entrada_saida.id_carro=tb_carro_cliente.id_carro 
-                                WHERE tb_carro_cliente.id_cliente=:id", $parametros);
-
-                                if(count($buscando)):
-                                  foreach($buscando as $mostrar):?>
-                                    <tr>
-                                      <td><?= $mostrar['id_entrada'] ?></td>
-                                      <td>
-                                      <?= $mostrar['id_entrada'] ?>
-                                      </td>
-                                      <td>Item 2</td>
-                                      <td>Item 3</td>
-                                      <td>Item 4</td>
-                                    </tr>
-                                    <?php 
-                                    endforeach;
-                                  else:    
-                                ?>
-                                    <tr>
-                                      <td colspan="12" class="bg-warning text-center text-white">Não existe nenhum dado</td>
-                                    </tr>
+                        <div class="rounded p-4 card" >
+                          <div id="table-responsive">
+                            <table class="table mt-4">
+                              <thead>
+                                <tr>
+                                  <th>#</th>
+                                  <th>Modelo</th>
+                                  <th>Data de Entrada</th>
+                                  <th>Data de Saída</th>
+                                  <th>Data de registro</th>
+                                  <th>Estado</th>
+                                </tr>
+                              </thead>
+                              <tbody>
                                 <?php 
-                                  endif; 
-                                ?>
-                            </tbody>
-                          </table>
+
+                                  $parametros = [":id" => $_SESSION['id']];
+                                  $buscandoEntradaSaida = new Model();
+                                  $buscando = $buscandoEntradaSaida->EXE_QUERY("SELECT * FROM tb_entrada_saida 
+                                  INNER JOIN tb_carro_cliente ON tb_entrada_saida.id_carro=tb_carro_cliente.id_carro 
+                                  WHERE tb_carro_cliente.id_cliente=:id", $parametros);
+
+                                  if(count($buscando)):
+                                    foreach($buscando as $mostrar):?>
+                                      <tr>
+                                        <td><?= $mostrar['id_entrada'] ?></td>
+                                        <td><?= $mostrar['modelo'] ?></td>
+                                        <td><?= $mostrar['data_entrada'] ?></td>
+                                        <td><?= $mostrar['data_saida'] ?></td>
+                                        <td><?= $mostrar['data_registro'] ?></td>
+                                        <td><?= $mostrar['estado'] === "0" ? '<span class="text-warning">Entrada</span>' : '<span class="text-success">Saída</span>' ?></td>
+                                      </tr>
+                                      <?php 
+                                      endforeach;
+                                    else:    
+                                  ?>
+                                      <tr>
+                                        <td colspan="12" class="bg-warning text-center text-white">Não existe nenhum dado</td>
+                                      </tr>
+                                  <?php 
+                                    endif; 
+                                  ?>
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                         <!-- End Tabela Entrada e Saída -->
                       </div>
