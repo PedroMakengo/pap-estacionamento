@@ -80,6 +80,26 @@
                                           <td><?= $mostrar['estado_solicitacao'] === "0"  ? '<span class="text-danger">Por aprovar</span>' : '<span class="text-success">Aprovado</span>' ?></td>
                                           <td><?= $mostrar['data_solicitacao'] ?></td>
                                           <td class="text-center">
+                                            <!-- Código para verificar se uma solicitação já foi preenchida -->
+                                            <?php 
+                                              // Buscando carro do cliente 
+                                              $parametros = [
+                                                ":id"     => $mostrar['id_cliente']
+                                              ];
+                                              $verificandoMinhaEntrada = new Model();
+                                              $buscandoCarroCliente = $verificandoMinhaEntrada->EXE_QUERY("SELECT * FROM tb_carro_cliente 
+                                               INNER JOIN tb_solicitacao_vaga ON tb_carro_cliente.id_cliente=tb_solicitacao_vaga.id_cliente
+                                               WHERE tb_carro_cliente.id_carro=:id", $parametros);
+                                              foreach($buscandoCarroCliente as $mostrarCarro):
+                                                $parametros = [":id" => $mostrarCarro['id_carro']];
+                                              endforeach; 
+
+                                              // Buscando a entrada deste carro 
+                                              $entradaCarro = new Model();   
+                                              $buscandoEntrada = $entradaCarro->EXE_QUERY("SELECT * FROM tb_entrada_saida WHERE id_carro=:id", $parametros);
+                                            ?>
+                                            <!-- Código para verificar se uma solicitação já foi preenchida -->
+
                                             <?php if($mostrar['estado_solicitacao'] === "0"): ?>
                                             <form method="POST">
                                               <button name="<?= $submeter = 'aceitar'.$mostrar['id_solicitacao_vaga'] ?>" class="btn btn-sm btn-primary">
@@ -106,11 +126,15 @@
                                                 <button name="<?= $negar = 'negar'.$mostrar['id_solicitacao_vaga'] ?>" class="btn btn-sm btn-primary" title="Solicitação Aprovada">
                                                   <i class="fas fa-thumbs-down"></i>
                                                 </button>
-                                                <a href="adicionar-entrada.php?id=<?= $mostrar['id_cliente'] ?>&id_solicitacao=<?= $mostrar['id_solicitacao_vaga'] ?>" 
-                                                  title="Adicionar a entrada do carro no estacionamento" 
-                                                  class="btn btn-sm btn-info">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
+
+                                                  <?php if($buscandoEntrada):?>
+                                                    <a href="adicionar-entrada.php?id=<?= $mostrar['id_cliente'] ?>&id_solicitacao=<?= $mostrar['id_solicitacao_vaga'] ?>" 
+                                                      title="Adicionar a entrada do carro no estacionamento" 
+                                                      class="btn btn-sm btn-info">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                  <?php else: ?>
+                                                  <?php endif; ?>
 
                                                 <?php
                                                 if(isset($_POST[$negar])):
@@ -163,7 +187,7 @@
                           <div class="p-2 mt-2">
                             <!-- End Tabela Estacionar -->
                             <div class="table-responsive">
-                              <table class="table" id="entradaCarro"  style="width: 1500px">
+                              <table class="table" id="entradaCarro"  style="width: 2100px">
                                 <thead>
                                   <tr>
                                     <th>#</th>
@@ -172,54 +196,62 @@
                                     <th>Modelo do Carro</th>
                                     <th>Cor</th>
                                     <th>Matricula</th>
+                                    <th>Estado</th>
                                     <th>Data de Entrada</th>
+                                    <th>Data de Saída</th>
                                     <th class="text-center">Acções</th>
                                   </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                       $buscandoEntradaCarro = new Model();
-                                      $busca = $buscandoEntradaCarro->EXE_QUERY("SELECT * FROM tb_estacionar_carro WHERE estado=0");
+                                      $busca = $buscandoEntradaCarro->EXE_QUERY("SELECT * FROM tb_entrada_saida
+                                       INNER JOIN tb_carro_cliente ON tb_entrada_saida.id_carro=tb_carro_cliente.id_carro
+                                       INNER JOIN tb_cliente ON tb_carro_cliente.id_cliente=tb_cliente.id_cliente");
                                       if($busca):
                                         foreach ($busca as $mostrar):
                                     ?>
                                       <tr>
-                                        <td><?= $mostrar['id_estacionar'] ?></td>
+                                        <td><?= $mostrar['id_entrada'] ?></td>
                                         <td><?= $mostrar['nome_cliente'] ?></td>
-                                        <td><?= $mostrar['bi'] ?></td>
+                                        <td><?= $mostrar['num_bi'] ?></td>
                                         <td><?= $mostrar['modelo'] ?></td>
                                         <td><?= $mostrar['cor'] ?></td>
                                         <td><?= $mostrar['matricula'] ?></td>
+                                        <td><?= $mostrar['estado'] === "0" ? '<span class="text-warning">Entrada</span>' : '<span class="text-success">Saída</span>' ?></td>
                                         <td><?= $mostrar['data_entrada'] ?></td>
+                                        <td><?= $mostrar['data_saida'] ?></td>
                                         <td class="text-center">
                                          <form method="POST">
-                                            <button type="submit" name="atualizar_saida" class="btn btn-sm btn-primary">
+                                            <?php if($mostrar['estado'] === "0"): ?>
+                                            <button type="submit" name="<?= $submeterAtualizar = 'atualizar_saida'.$mostrar['id_entrada'] ?>" class="btn btn-sm btn-primary">
                                               <i class="fas fa-check"></i>
                                             </button>
-                                            <a href="#" class="btn btn-sm btn-danger">
+                                              <?php 
+                                                if(isset($_POST[$submeterAtualizar])):
+
+                                                  $parametros = [
+                                                    ":id" => $mostrar['id_entrada'],
+                                                    ":estado" => 1
+                                                  ];
+
+                                                  $atualizar = new Model();
+                                                  $atualizar->EXE_NON_QUERY("UPDATE tb_entrada_saida SET
+                                                  estado=:estado,
+                                                  data_saida=now() 
+                                                  WHERE
+                                                  id_entrada=:id ", $parametros);
+                                                  if($atualizar):
+                                                    echo "<script>location.href='registro-online.php?id=online'</script>";
+                                                  endif;
+                                                endif;
+                                              ?>
+                                            <?php else: ?>
+                                            <?php endif; ?>
+                                            <a href="registro-online.php?action=delete&id=<?= $mostrar['id_entrada']?>" class="btn btn-sm btn-danger">
                                               <i class="fas fa-trash"></i>
                                             </a>
-                                            <?php 
-                                              if(isset($_POST['atualizar_saida'])):
-
-                                                $parametros = [
-                                                  ":id" => $mostrar['id_estacionar'],
-                                                  ":estado" => 1
-                                                ];
-
-                                                $atualizar = new Model();
-                                                $atualizar->EXE_NON_QUERY("UPDATE tb_estacionar_carro SET
-                                                estado=:estado,
-                                                data_saida=now() 
-                                                WHERE
-                                                id_estacionar=:id ", $parametros);
-                                                if($atualizar):
-                                                  echo "<script>location.href='registro.php?id=registro'</script>";
-                                                endif;
-                                              endif;
-                                            ?>
                                          </form>
-                                         
                                         </td>
                                       </tr>
                                     <?php
@@ -239,6 +271,25 @@
 
                         </div>
                         <!-- Entrada carro -->
+
+                        <!-- Eliminar Entrada -->
+                        <?php
+                        if (isset($_GET['action']) && $_GET['action'] == 'delete'):
+                            $id = $_GET['id'];
+                            $parametros  =[
+                                ":id"=>$id
+                            ];
+                            $delete = new Model();
+                            $delete->EXE_NON_QUERY("DELETE FROM tb_entrada_saida WHERE id_entrada=:id", $parametros);
+                            if($delete == true):
+                                echo "<script>window.alert('Apagado com sucesso');</script>";
+                                echo "<script>location.href='registro-online.php?id=online'</script>";
+                            else:
+                                echo "<script>window.alert('Operação falhou');</script>";
+                            endif;
+                        endif;
+                        ?>
+                        <!-- Eliminar Entrada -->
 
                       </div>
                   </div>

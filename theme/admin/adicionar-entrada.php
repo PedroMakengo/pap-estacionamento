@@ -129,11 +129,11 @@
                                   $inserir = new Model();
                                   $inserir->EXE_NON_QUERY("INSERT INTO 
                                   tb_entrada_saida (id_carro, id_solicitacao_vaga, data_entrada, data_saida, estado, data_registro) 
-                                  VALUES (:id, :idSolicitacao, now(), now(), :estado, now()) ", $parametros);
+                                  VALUES (:id, :idSolicitacao, now(), null, :estado, now()) ", $parametros);
 
                                   if($inserir):
                                     echo "<script>window.alert('Entrada de carro efetuado com sucesso')</script>";
-                                    echo "<script>location.href='registro-online.php'</script>";
+                                    echo "<script>location.href='registro-online.php?id=online'</script>";
                                   endif;
                                 endif;?>
                           </form>
