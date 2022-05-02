@@ -117,7 +117,7 @@
                                                   WHERE id_solicitacao_vaga=:id", $parametros);
 
                                                   if($atualizarSolicitacao):
-                                                    echo "<script>location.href='registro.php?id=registro'</script>";
+                                                    echo "<script>location.href='registro-online.php?id=registro'</script>";
                                                   endif;
                                                 endif;?>
                                             </form>
@@ -209,8 +209,7 @@
                                        INNER JOIN tb_carro_cliente ON tb_entrada_saida.id_carro=tb_carro_cliente.id_carro
                                        INNER JOIN tb_cliente ON tb_carro_cliente.id_cliente=tb_cliente.id_cliente");
                                       if($busca):
-                                        foreach ($busca as $mostrar):
-                                    ?>
+                                        foreach ($busca as $mostrar):?>
                                       <tr>
                                         <td><?= $mostrar['id_entrada'] ?></td>
                                         <td><?= $mostrar['nome_cliente'] ?></td>

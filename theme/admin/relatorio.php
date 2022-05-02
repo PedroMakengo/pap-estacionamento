@@ -1,5 +1,4 @@
 <?php
-
     include '../../source/Config.php';
     include '../../source/Model.php';
     include '../assets/mpdf-6.1/mpdf.php';
