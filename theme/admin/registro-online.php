@@ -246,6 +246,11 @@
                                                 endif;
                                               ?>
                                             <?php else: ?>
+                                              <!-- Analizar o código -->
+                                              <button>
+                                                <i class="fas fa-check"></i>
+                                              </button>
+                                              <!-- Analizar o código -->
                                             <?php endif; ?>
                                             <a href="registro-online.php?action=delete&id=<?= $mostrar['id_entrada']?>" class="btn btn-sm btn-danger">
                                               <i class="fas fa-trash"></i>
