@@ -47,7 +47,14 @@
                       </div>
                   <?php else: ?>
                       <div class="rounded p-4 card">
-                        <h1 class="title">Preenchimento da vaga</h1>
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <a href="index.php?id=home">Voltar para à página anterior</a>
+                          </div>
+                          <div class="col-lg-6 text-right">
+                            <h1 class="title">Solicite a tua vaga</h1>
+                          </div>
+                        </div>
                         <hr>
                         <?php 
                           $parametros = [":id" => $_GET['id']];

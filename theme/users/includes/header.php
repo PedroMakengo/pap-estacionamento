@@ -80,7 +80,7 @@
             </ul>
           </nav>
           <div class="stans-office">
-            <h2>Stans Office</h2>
+            <h2>Ango-Parque</h2>
           </div>
         </div>
       </aside>

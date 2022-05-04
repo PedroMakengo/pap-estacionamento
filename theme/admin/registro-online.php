@@ -93,10 +93,6 @@
                                               foreach($buscandoCarroCliente as $mostrarCarro):
                                                 $parametros = [":id" => $mostrarCarro['id_carro']];
                                               endforeach; 
-
-                                              // Buscando a entrada deste carro 
-                                              $entradaCarro = new Model();   
-                                              $buscandoEntrada = $entradaCarro->EXE_QUERY("SELECT * FROM tb_entrada_saida WHERE id_carro=:id", $parametros);
                                             ?>
                                             <!-- Código para verificar se uma solicitação já foi preenchida -->
 
@@ -123,34 +119,9 @@
                                             </form>
                                             <?php else: ?>
                                              <form method="POST">
-                                                <button name="<?= $negar = 'negar'.$mostrar['id_solicitacao_vaga'] ?>" class="btn btn-sm btn-primary" title="Solicitação Aprovada">
-                                                  <i class="fas fa-thumbs-down"></i>
+                                                <button name="<?= $negar = 'negar'.$mostrar['id_solicitacao_vaga'] ?>" class="btn btn-sm btn-success" title="Adicionar entrada do carro">
+                                                  <i class="fas fa-check"></i> 
                                                 </button>
-
-                                                  <?php if($buscandoEntrada):?>
-                                                    <a href="adicionar-entrada.php?id=<?= $mostrar['id_cliente'] ?>&id_solicitacao=<?= $mostrar['id_solicitacao_vaga'] ?>" 
-                                                      title="Adicionar a entrada do carro no estacionamento" 
-                                                      class="btn btn-sm btn-info">
-                                                        <i class="fas fa-eye"></i>
-                                                    </a>
-                                                  <?php else: ?>
-                                                  <?php endif; ?>
-
-                                                <?php
-                                                if(isset($_POST[$negar])):
-                                                  $parametros = [
-                                                    ":id" => $mostrar['id_solicitacao_vaga'],
-                                                    ":estado" => 0
-                                                  ];
-                                                  $atualizarSolicitacao = new Model();
-                                                  $atualizarSolicitacao->EXE_NON_QUERY("UPDATE tb_solicitacao_vaga SET
-                                                  estado_solicitacao=:estado
-                                                  WHERE id_solicitacao_vaga=:id", $parametros);
-
-                                                  if($atualizarSolicitacao):
-                                                    echo "<script>location.href='registro.php?id=registro'</script>";
-                                                  endif;
-                                                endif;?>
                                              </form>
                                             <?php endif; ?>
                                           </td>
