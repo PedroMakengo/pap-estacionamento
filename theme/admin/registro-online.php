@@ -118,11 +118,9 @@
                                                 endif;?>
                                             </form>
                                             <?php else: ?>
-                                             <form method="POST">
-                                                <button name="<?= $negar = 'negar'.$mostrar['id_solicitacao_vaga'] ?>" class="btn btn-sm btn-success" title="Adicionar entrada do carro">
+                                                <a href="adicionar-entrada.php?id_solicitacao=<?= $mostrar['id_solicitacao_vaga'] ?>&id=<?= $mostrar['id_cliente']?>" class="btn btn-success btn-sm">
                                                   <i class="fas fa-check"></i> 
-                                                </button>
-                                             </form>
+                                                </a>
                                             <?php endif; ?>
                                           </td>
                                         </tr>
@@ -218,9 +216,7 @@
                                               ?>
                                             <?php else: ?>
                                               <!-- Analizar o código -->
-                                              <button>
-                                                <i class="fas fa-check"></i>
-                                              </button>
+                                              
                                               <!-- Analizar o código -->
                                             <?php endif; ?>
                                             <a href="registro-online.php?action=delete&id=<?= $mostrar['id_entrada']?>" class="btn btn-sm btn-danger">
