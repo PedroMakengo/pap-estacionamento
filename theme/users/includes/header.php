@@ -3,7 +3,7 @@
         <div class="header-mobile__bar">
           <div class="container-fluid">
             <div class="header-mobile-inner">
-              <a class="logo" href="index.html">
+              <a class="logo" href="index.php?id=home">
                 Ango-Parque
               </a>
               <button class="hamburger hamburger--slider" type="button">
@@ -50,7 +50,9 @@
 
       <!-- MENU SIDEBAR-->
       <aside class="menu-sidebar d-none d-lg-block" >
-        <div class="logo dash-aside-bg" style="background: #5429CC !important"></div>
+        <div class="logo dash-aside-bg" style="background: #5429CC !important; color: white">
+         PAINEL DO USUÁRIO
+        </div>
         <div class="menu-sidebar__content js-scrollbar1 bg-user-estacionamento"
         style="background: #5429CC !important"
         >

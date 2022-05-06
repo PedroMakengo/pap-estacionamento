@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01-Maio-2022 às 10:47
+-- Tempo de geração: 04-Maio-2022 às 20:50
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 7.3.33
 
@@ -40,8 +40,8 @@ CREATE TABLE `tb_admin` (
 --
 
 INSERT INTO `tb_admin` (`id_admin`, `nome`, `email`, `senha`, `foto`) VALUES
-(1, 'Dom Chocas', 'domchocas@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', '1648054500392.jpeg'),
-(2, 'Manuel Santos ', 'manuelsantos@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', 'AirPods-Pro-Review-9to5-Mac-.webp');
+(1, 'Francisco Leonardo', 'franciscoleonardo@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', '1648054500392.jpeg'),
+(2, 'João Oliveira', 'joaooliveira@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', 'AirPods-Pro-Review-9to5-Mac-.webp');
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,10 @@ CREATE TABLE `tb_carro_cliente` (
 --
 
 INSERT INTO `tb_carro_cliente` (`id_carro`, `id_cliente`, `marca`, `cor`, `modelo`, `matricula`, `data_registro_carro`) VALUES
-(2, 6, 'Teste', 'Vermelho', 'BMW', '2222', '2022-04-28 14:57:46');
+(2, 6, 'Teste', 'Vermelho', 'BMW', '2222', '2022-04-28 14:57:46'),
+(3, 7, 'BMW', 'Preta', 'Novo', '0000-10', '2022-05-02 16:26:44'),
+(4, 8, 'Power', 'Vermelho', 'M12', '929292', '2022-05-04 15:08:47'),
+(5, 10, 'Power', 'Vermelho', 'Power', '00000-105', '2022-05-04 15:44:33');
 
 -- --------------------------------------------------------
 
@@ -91,7 +94,12 @@ CREATE TABLE `tb_cliente` (
 
 INSERT INTO `tb_cliente` (`id_cliente`, `nome_cliente`, `email_cliente`, `senha_cliente`, `foto_cliente`, `num_bi`, `tel_cliente`, `genero`, `idade`, `data_registro_cliente`) VALUES
 (1, 'Dom Chocas', 'joao123@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', 'dom.jpg', '1232323', 921538920, 'M', '22', '2022-03-27 08:52:55'),
-(6, 'Francisco Martins ', 'franciscomartins@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', '8.png', '000000000000000', 921538972, 'M', '24', '2022-04-14 04:57:47');
+(6, 'Francisco Martins ', 'franciscomartins@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', '8.png', '000000000000000', 921538972, 'M', '24', '2022-04-14 04:57:47'),
+(7, 'Francisco', 'francisco@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', 'Captura de Tela (139).png', '0000000000LA03', 921538999, 'M', '21', '2022-05-02 16:22:34'),
+(8, 'Ana Maria', 'anamaria@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', 'AirPods-3-Feature-Red.jpg', '000000000000LA1', 921401023, 'F', '23', '2022-05-04 14:03:27'),
+(9, 'António Gomes', 'antonio@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', 'AirPods-3-Feature-Red.jpg', '111111111111111', 921538972, 'M', '27', '2022-05-04 15:15:26'),
+(10, 'Anabela dos Santos', 'anabela@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', 'AirPods-3-Feature-Red.jpg', '000000', 922708022, 'F', '20', '2022-05-04 15:42:47'),
+(11, 'Otniel João', 'otnieljoao@gmail.com', 'd9b1d7db4cd6e70935368a1efb10e377', 'AirPods-Pro-Review-9to5-Mac-.webp', '111111111111111', 900120444, 'M', '19', '2022-05-04 15:43:29');
 
 -- --------------------------------------------------------
 
@@ -114,7 +122,10 @@ CREATE TABLE `tb_entrada_saida` (
 --
 
 INSERT INTO `tb_entrada_saida` (`id_entrada`, `id_carro`, `id_solicitacao_vaga`, `data_entrada`, `data_saida`, `estado`, `data_registro`) VALUES
-(1, 2, 1, '2022-04-29 12:59:15', '2022-04-29 14:04:05', 1, '2022-04-29 12:59:15');
+(1, 2, 1, '2022-04-29 12:59:15', '2022-04-29 14:04:05', 1, '2022-04-29 12:59:15'),
+(2, 3, 2, '2022-05-04 15:03:01', NULL, 0, '2022-05-04 15:03:01'),
+(3, 4, 4, '2022-05-04 15:09:42', NULL, 0, '2022-05-04 15:09:42'),
+(4, 5, 5, '2022-05-04 15:46:24', '2022-05-04 15:46:55', 1, '2022-05-04 15:46:24');
 
 -- --------------------------------------------------------
 
@@ -141,7 +152,9 @@ CREATE TABLE `tb_estacionar_carro` (
 --
 
 INSERT INTO `tb_estacionar_carro` (`id_estacionar`, `id_admin`, `nome_cliente`, `bi`, `modelo`, `cor`, `matricula`, `data_entrada`, `data_saida`, `estado`, `data_registro_estacionar`) VALUES
-(1, 2, 'Pedro Makengo', '111111111111111', 'BMW', 'Vermelho', '22222', '2022-04-24 00:00:00', '2022-04-26 19:13:03', 1, '2022-04-26 18:01:15');
+(1, 2, 'Pedro Makengo', '111111111111111', 'BMW', 'Vermelho', '22222', '2022-04-24 00:00:00', '2022-04-26 19:13:03', 1, '2022-04-26 18:01:15'),
+(2, 2, 'Mauro', '00000000', 'BMW', 'Azul', '00000-202', '2022-05-02 16:32:08', '2022-05-02 16:32:39', 1, '2022-05-02 16:32:08'),
+(3, 2, 'Makengo', '000001210999', 'MVL', 'Vermelha', '0000-112', '2022-05-04 15:36:39', '2022-05-04 15:36:58', 1, '2022-05-04 15:36:39');
 
 -- --------------------------------------------------------
 
@@ -163,7 +176,11 @@ CREATE TABLE `tb_solicitacao_vaga` (
 --
 
 INSERT INTO `tb_solicitacao_vaga` (`id_solicitacao_vaga`, `id_cliente`, `id_vaga`, `mensagem`, `estado_solicitacao`, `data_solicitacao`) VALUES
-(1, 6, 1, 'Testa', 1, '2022-04-28 13:15:47');
+(1, 6, 1, 'Testa', 1, '2022-04-28 13:15:47'),
+(2, 7, 1, 'Textando', 1, '2022-05-02 16:25:35'),
+(3, 7, 3, 'Preciso desta vaga', 0, '2022-05-02 16:41:50'),
+(4, 8, 3, 'Teste', 1, '2022-05-04 14:43:02'),
+(5, 10, 4, 'Testando', 1, '2022-05-04 15:45:33');
 
 -- --------------------------------------------------------
 
@@ -184,7 +201,9 @@ CREATE TABLE `tb_vaga` (
 --
 
 INSERT INTO `tb_vaga` (`id_vaga`, `id_admin`, `espaco_vago`, `preco`, `descricao`) VALUES
-(1, 1, 'PT-1', 100, '\n    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel tenetur beatae ea doloribus sapiente maxime dolores nisi dolorum. Inventore recusandae praesentium, delectus molestias dolores ullam tempore exercitationem eligendi ut ipsum!');
+(1, 1, 'PT-1', 100, 'Trabalhando '),
+(3, 2, '10A1', 1000, 'FFAFAFA'),
+(4, 2, '900', 1000, 'Estamos aberto ');
 
 --
 -- Índices para tabelas despejadas
@@ -253,37 +272,37 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT de tabela `tb_carro_cliente`
 --
 ALTER TABLE `tb_carro_cliente`
-  MODIFY `id_carro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_carro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tb_cliente`
 --
 ALTER TABLE `tb_cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `tb_entrada_saida`
 --
 ALTER TABLE `tb_entrada_saida`
-  MODIFY `id_entrada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_entrada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `tb_estacionar_carro`
 --
 ALTER TABLE `tb_estacionar_carro`
-  MODIFY `id_estacionar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_estacionar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tb_solicitacao_vaga`
 --
 ALTER TABLE `tb_solicitacao_vaga`
-  MODIFY `id_solicitacao_vaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_solicitacao_vaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tb_vaga`
 --
 ALTER TABLE `tb_vaga`
-  MODIFY `id_vaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_vaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restrições para despejos de tabelas
